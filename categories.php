@@ -1,0 +1,79 @@
+<?php include "admin_header.php" ?>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+ 
+        <?php include "admin_navigation.php" ?>
+    
+
+<div id="page-wrapper">
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+
+  <h1 class="page-header">
+                Welcome to admin
+                <small>Nancy Michele</small>
+            </h1>
+<?php
+
+if(isset($_GET['source'])){
+
+$source = $_GET['source'];
+
+} else {
+
+$source = '';
+
+}
+
+switch($source) {
+    
+    case 'add_category';
+    
+     include "add_category.php";
+    
+    break; 
+    
+    
+    case 'edit_category';
+    
+    include "edit_category.php";
+    break;
+    
+    
+    default:
+    
+    include "view_all_categories.php";
+    
+    break;
+    
+}
+
+
+?>
+
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+
+     
+        <!-- /#page-wrapper -->
+        
+  		
+        <div id="footer">
+		
+			<div class="row">
+				<p class="footer"><font color = "white">Copyright © 2017 Spoontiques. All Rights Reserved.</p>
+			</div>
+		</div>
+

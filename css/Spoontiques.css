@@ -1,0 +1,59 @@
+
+h1 {
+    text-align: center;
+}
+
+h5 {
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 18px;
+}
+
+.card-title {
+    color: darkturquoise;
+    width: 15rem;
+}
+.p.card-text {
+    color: black;
+    width: 15rem;
+}
+
+#logo {
+    margin-top:8px;
+    width:400px;
+    margin-right:8px;
+    margin-bottom:10px;
+    opacity: 50%;
+}
+
+
+#footer {
+    background-color: mediumturquoise;
+    padding-top: 10px;
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#topbar {
+    _width:100px;
+    height: 150px;
+    background-color:mediumturquoise;
+}
+
+.nav-link {
+    font-size: 20px;
+    color: paleturquoise;
+
+}
+.nav-link.active {
+    color: white;
+}
+
+li.nav-item {
+    padding-top: 5px;
+}
+
+.nav>li>a:hover {
+    background-color: mediumturquoise;
+}
