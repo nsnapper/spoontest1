@@ -1,20 +1,29 @@
 <?php
 
+//mysql://b7a7e5ee9c955a:8c71d871@us-cdbr-iron-east-05.cleardb.net/heroku_aeeec5f573ac96d?reconnect=true
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+//
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+$connection = new mysqli($server, $username, $password, $db);
 
 
-$db['db_host'] = "localhost";
-$db['db_user'] = "root";
-$db['db_pass'] = "root";
-$db['db_name'] = "spoontiqueswebsite";
+// LOCALHOST settings:
+//$db['db_host'] = "localhost";
+//$db['db_user'] = "root";
+//$db['db_pass'] = "root";
+//$db['db_name'] = "spoontiqueswebsite";
 
-foreach($db as $key => $value){
+//foreach($db as $key => $value){
     
-    define(strtoupper($key), $value);
+//    define(strtoupper($key), $value);
     
     
-}
+//}
 
-$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+//$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 //if($connection) {
 //    
