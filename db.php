@@ -1,6 +1,7 @@
 <?php
 
 //mysql://b7a7e5ee9c955a:8c71d871@us-cdbr-iron-east-05.cleardb.net/heroku_aeeec5f573ac96d?reconnect=true
+// Just a comment
 if (getenv("CLEARDB_DATABASE_URL") != null) {
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     //
