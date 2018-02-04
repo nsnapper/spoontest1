@@ -16,7 +16,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!--     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
   
 	<script src="https://use.fontawesome.com/3d8abb5100.js"></script>
       
@@ -34,8 +34,13 @@
  <body>
      
     <?php include "includes/logo.php"; ?>
-    <?php include "includes/navbar.php"; ?>  
+    <?php include "includes/navbar.php"; ?>
+    
+      <div id="banner" class="banner">
+          <img src="images/Full Banner.JPG" alt="product banner">;
+      </div>  
 
+<!--
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -66,15 +71,8 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <style>
-        .subtitle {
-            padding-left: 60px !important;
-        }
-        .row {
-            text color: red;
-        }
-    </style>     
-                     
+-->
+         
    	<div class="subtitle" id="Products">
 		<div class="row">
 			<h1>Products</h1>

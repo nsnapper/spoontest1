@@ -43,7 +43,7 @@
 <?php
 
     if(isset($_GET['delete'])){
-        
+
         $category_id = $_GET['delete'];
         $query = "DELETE FROM pagetable WHERE PageTableId = {$category_id}";
         $delete_query = mysqli_query($connection, $query);
