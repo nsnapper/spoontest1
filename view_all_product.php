@@ -59,7 +59,7 @@
                 
                 echo "<td><a href='products.php?source=edit_product&edit_product={$system_id}'>Edit</a></td>"; 
                 
-                echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='../products.php?delete={$system_id}'>Delete</a></td>"; 
+                echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='products.php?delete={$system_id}'>Delete</a></td>"; 
 
                 echo "</tr>";
 
@@ -78,8 +78,9 @@
     if(isset($_GET['delete'])){
         
         $system_id = $_GET['delete'];
-        $query = "DELETE FROM products WHERE System_ID = {$system_id}";
+        $query = "DELETE FROM websitelayout WHERE System_ID = {$system_id}";
         $delete_query = mysqli_query($connection, $query);
+        confirm($delete_query);
         header("Location: products.php");
 
 }
