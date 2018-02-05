@@ -70,10 +70,4 @@ switch($source) {
         <!-- /#page-wrapper -->
         
   		
-        <div id="footer">
-		
-			<div class="row">
-				<p class="footer"><font color = "white">Copyright © 2017 Spoontiques. All Rights Reserved.</p>
-			</div>
-		</div>
-
+<?php include "includes/admin_footer.php"; ?>
