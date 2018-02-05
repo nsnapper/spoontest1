@@ -100,16 +100,8 @@
         echo "nms query: " . $query;
         
         $delete_query = mysqli_query($connection, $query);
-
-    
-    if (!$delete_query) {
-
-        die("QUERY FAILED" . mysqli_error($connection));
     }
-    
-
-}
-//        header("Location: products.php");
+        header("Location: products.php");
 
 
 
