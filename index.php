@@ -37,7 +37,7 @@
     <?php include "includes/navbar.php"; ?>
     
       <div id="banner" class="banner">
-          <img src="images/Full Banner.JPG" alt="product banner" img width = 100%>;
+          <img src="images/FullBanner.JPG" alt="product banner" img width = 100%>;
       </div>  
 
 <!--
