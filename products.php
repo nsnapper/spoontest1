@@ -47,9 +47,11 @@ switch($source) {
     
     
     default:
-    
     include "view_all_product.php";
-    
+        
+        ?>
+
+<?php
     break;
     
 }
@@ -70,4 +72,4 @@ switch($source) {
         <!-- /#page-wrapper -->
         
   		
-<?php include "includes/admin_footer.php"; ?>
+<?php include "includes/footer.php"; ?>
