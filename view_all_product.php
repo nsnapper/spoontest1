@@ -33,15 +33,6 @@
                 $query = "SELECT * FROM pagetable WHERE PageTableId = $link_to";  
                 $select_query = mysqli_query($connection, $query); 
                 confirm($select_query);
-                
-                if (mysqli_num_rows($select_query) > 0) {
-                     while($row = mysqli_fetch_assoc($select_query)){
-                        $link_to_page_title = escape($row['PageTableName']);
-                    }                   
-                }
-                else {
-                    $link_to_page_title = "unknown";
-                }
 
                 while($row = mysqli_fetch_assoc($select_query)){
                     $link_to_page_title = escape($row['PageTableName']);
@@ -49,14 +40,9 @@
                 $query = "SELECT * FROM pagetable WHERE PageTableId = $display_page";  
                 $select_query = mysqli_query($connection, $query); 
                 confirm($select_query);
-                
-                if (mysqli_num_rows($select_query) > 0) {                
-                    while($row = mysqli_fetch_assoc($select_query)){
-                        $display_page_title = escape($row['PageTableName']);
-                    }
-                }
-                else {
-                    $display_page_title = "unknown";
+
+                while($row = mysqli_fetch_assoc($select_query)){
+                    $display_page_title = escape($row['PageTableName']);
                 }
  
                 echo "<tr>";
@@ -73,10 +59,7 @@
                 
                 echo "<td><a href='products.php?source=edit_product&edit_product={$system_id}'>Edit</a></td>"; 
                 
-                echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='products.php?delete={$system_id}'>Delete</a></td>"; 
-                
-                echo "</tr>";
-
+                echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='../products.php?delete={$system_id}'>Delete</a></td>"; 
 
                 echo "</tr>";
 
@@ -93,15 +76,13 @@
 <?php
 
     if(isset($_GET['delete'])){
-        $system_id = $_GET['delete'];
-        echo "nms in delete" . $system_id;
-
-        $query = "DELETE FROM websitelayout WHERE System_ID = {$system_id}";
-        echo "nms query: " . $query;
         
+        $system_id = $_GET['delete'];
+        $query = "DELETE FROM products WHERE System_ID = {$system_id}";
         $delete_query = mysqli_query($connection, $query);
-    }
         header("Location: products.php");
+
+}
 
 
 
