@@ -94,11 +94,24 @@
 
     if(isset($_GET['delete'])){
         $system_id = $_GET['delete'];
+        echo "nms in delete" . $system_id;
+
         $query = "DELETE FROM websitelayout WHERE System_ID = {$system_id}";
+        echo "nms query: " . $query;
+        
         $delete_query = mysqli_query($connection, $query);
-        header("Location: products.php");
+
+    
+    if (!$delete_query) {
+
+        die("QUERY FAILED" . mysqli_error($connection));
+    }
+    
 
 }
+//        header("Location: products.php");
+
+
 
 ?>
 
