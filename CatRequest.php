@@ -24,6 +24,7 @@
     <link href="jquery-ui/jquery-ui.css" rel="stylesheet">	
         <link rel="stylesheet" type="text/css" href="css/Spoontiques.css">
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
  </head>
     
  
@@ -86,28 +87,17 @@
                         <div class="form-group">
                             <input type="text" name="businessType" id="businessType" class="form-control" placeholder="What type of business do you have?">
                         </div>
- 
-                         <div class="form-group">
-                            <textarea class="form-control" name="question" id="question" placeholder="Enter question or comments"></textarea>
-                        </div>
-                
+                        <div class="form-group">
+                            <input type="text" name="businessURL" id="businessURL" class="form-control" placeholder="Business Website">
+                        </div>                        
+                        <div class="g-recaptcha" data-sitekey="6Ldx5UQUAAAAAF6YYFpwAWSCkvs4Pj5cBz3lrKjk"></div>
                         <input type="submit" name="submit" id="btn-submit" class="btn btn-custom btn-lg btn-block" value="Submit">
                     </form>
                  
                 </div>
             </div> <!-- /.col-xs-12 -->
         </div> <!-- /.row -->
-                <div id="contactInfo">
-        
-         <h7>Spoontiques, Inc. Contact Info</h7>
-        Spoontiques, Inc., 111 Island St., Stoughton, MA  02072
-         <p>Phone: (781)344-9530</p>
-          <p>Toll Free: (800)225-5826</p>
-         <p>Fax:  (781)344-1576</p>
-         <p>email: service@spoontiques.com</p>
 
-
-         </div>
 		
     </div> <!-- /.container -->
 </section>
