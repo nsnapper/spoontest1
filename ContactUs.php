@@ -2,33 +2,14 @@
 
 <html lang="en">
     
-  <head>
-      
-    <title>Spoontiques, Inc. - Wholesale Giftware</title>
-      
- 
-      
-    <meta charset="utf-8">
-      
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    <script src="https://use.fontawesome.com/3d8abb5100.js"></script>
-      
-    <script type="text/javascript" src="jquery.min.js"></script>
-        
-    <script src="jquery-ui/jquery-ui.js"></script>
-        
-    <link href="jquery-ui/jquery-ui.css" rel="stylesheet">	
-        <link rel="stylesheet" type="text/css" href="css/Spoontiques.css">
-
- </head>
+<head>
+    <?php include "includes/common_head.php"; ?>
+</head>
     
  
  <body>
-     
+   
+    <?php include "db.php"; ?>     
     <?php include "includes/logo.php"; ?>
     <?php include "includes/navbar.php"; ?>  
  
@@ -42,18 +23,10 @@
         $body     = $_POST['body'];
         
         if (!empty($subject) && !empty($email) && !empty($body)){
-//            $subject    = mysqli_real_escape_string($connection, $subject);
-//            $email      = mysqli_real_escape_string($connection, $email);
-//            $body       = mysqli_real_escape_string($connection, $body);
+            $subject    = mysqli_real_escape_string($connection, $subject);
+            $email      = mysqli_real_escape_string($connection, $email);
+            $body       = mysqli_real_escape_string($connection, $body);
 
-//            $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12));
-//
-//            $query = "INSERT INTO users (user_name, user_email, user_password, user_role) ";
-//            $query .= "VALUES ('{$username}','{$email}','{$password}', 'Subscriber' )";
-//            $register_user_query = mysqli_query($connection, $query);
-//            if(!$register_user_query) {
-//                die("QUERY FAILED ". mysqli_error($connection) . ' ' . mysqli_errno($connection));
-//            }
             
             $body = wordwrap($body,70);
             mail($to,$subject,$body);
@@ -92,24 +65,7 @@
                         </div>
                         
                         
-                            <tr>
-                              <td width="48%" align="right">&nbsp;                              </td>
-                              <td width="4%" align="center">&nbsp;</td>
-                              <td width="48%" align="left">
-                                <img src="includes/captcha_code_file.php?rand=<?php echo rand(); ?>" id='captchaimg' ><br>                              </td>
-                            </tr>
-                            <tr>
-                              <td width="48%" align="right">
-                                <label for='message'>Enter the image code above here</label>                              </td>
-                              <td width="4%" align="center">:</td>
-                              <td width="48%" align="left">
-                                <input id="6_letters_code" name="6_letters_code" type="text">                              </td>
-                            </tr>
-                            <tr>
-                              <td colspan=3 _width="48%" align="center">
-                                <small>Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh</small>                              </td>
-                            </tr>
-                        
+                        <div class="g-recaptcha" data-sitekey="6Ldx5UQUAAAAAF6YYFpwAWSCkvs4Pj5cBz3lrKjk"></div>
                         <input type="submit" name="submit" id="btn-submit" class="btn btn-custom btn-lg btn-block" value="Submit">                
                     </form>
                  
@@ -125,16 +81,7 @@
 
 <?php include "includes/footer.php"; ?>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-
-	alpha.2/js/bootstrap.min.js" integrity="sha384-
-	vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" 
-	crossorigin="anonymous"></script>
-	
-	<script type="text/javascript">
 
-	</script>
   </body>
     
 </html>

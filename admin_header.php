@@ -16,7 +16,7 @@
 
     <title>Spoontiques, Inc.</title>
 
-    <!-- Bootstrap Core CSS -->
+<!--     Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->

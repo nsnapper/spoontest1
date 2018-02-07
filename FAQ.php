@@ -1,42 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    
-  <head>
-      
-    <title>Spoontiques, Inc. - Wholesale Giftware</title>
-      
- 
-      
-    <meta charset="utf-8">
-      
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  
--->
- 
-	<script src="https://use.fontawesome.com/3d8abb5100.js"></script>
-      
-    <script type="text/javascript" src="jquery.min.js"></script>
-        
-    <script src="jquery-ui/jquery-ui.js"></script>
-        
-    <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+<head>
+    <?php include "includes/common_head.php"; ?>
+</head>
 
-    <link rel="stylesheet" type="text/css" href="css/Spoontiques.css">
-
-	<style>
-        
-  
-    
-      </style>
-	
- </head>
     
  
  <body>
@@ -185,16 +154,7 @@
 		
 <?php include "includes/footer.php"; ?>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-
-	alpha.2/js/bootstrap.min.js" integrity="sha384-
-	vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" 
-	crossorigin="anonymous"></script>
-	
-	<script type="text/javascript">
 
-	</script>
   </body>
     
 </html>
