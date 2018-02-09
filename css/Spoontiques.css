@@ -33,6 +33,7 @@ h5 {
     margin-top: 50px;
     text-align: center;
     padding-bottom: 5px;
+    font color: black;
 }
 
 
@@ -57,6 +58,7 @@ li.nav-item {
 
 .nav>li>a:hover {
     background-color: mediumturquoise;
+    color: paleturquoise !important;
 }
 
 .subtitle {
