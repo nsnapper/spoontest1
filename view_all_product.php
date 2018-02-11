@@ -57,9 +57,9 @@
                 echo "<td>$blurb</td>";
                 echo "<td>$link_to_page_title</td>";
                 
-                echo "<td><a href='products.php?source=edit_product&edit_product={$system_id}'>Edit</a></td>"; 
+                echo "<td><a class='btn btn-info' href='products.php?source=edit_product&edit_product={$system_id}'>Edit</a></td>"; 
                 
-                echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='products.php?delete={$system_id}'>Delete</a></td>"; 
+                echo "<td><a class='btn btn-danger' onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='products.php?delete={$system_id}'>Delete</a></td>"; 
 
                 echo "</tr>";
 

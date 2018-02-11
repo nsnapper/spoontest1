@@ -32,7 +32,7 @@ if(isset($_GET['category'])){
 
 ?>
            
-	  <nav class="navbar navbar-dark" _id="navbar" style="background-color: mediumturquoise; border-radius: 0;">	
+	  <nav class="navbar navbar-dark" _id="navbar" style="background-color: lightseagreen; border-radius: 0;">	
 
 	  <a class="navbar-brand" href="#"></a>
 	  <ul class="nav navbar-nav">

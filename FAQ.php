@@ -4,28 +4,30 @@
 
 <head>
     <?php include "includes/common_head.php"; ?>
+    
 </head>
 
     
  
  <body>
      
-    <?php include "includes/logo.php"; ?>
-    <?php include "includes/navbar.php"; ?>  
-       
-        <div class = "subtitle" id="FAQ">
-            
-            <div class="row">
-			     <h1>Frequently Asked Questions</h1>
-            </div>
+<?php include "includes/logo.php"; ?>
+<?php include "includes/navbar.php"; ?>  
 
-        </div> 
+<div class = "subtitle" id="FAQ">
+
+    <div class="row">
+         <h1>Frequently Asked Questions</h1>
+    </div>
+
+</div> 
+
             
 <div id="accordion" role="tablist" aria-multiselectable="true">
   <div class="card">
     <div class="card-header" role="tab" id="heading01">
       <h5 class="mb-0" >
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse01" aria-expanded="true" aria-controls="collapse01" style="color:darkturquoise">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse01" aria-expanded="true" aria-controls="collapse01" style="color:lightseagreen">
             Do you sell directly to collectors?
         </a>
       </h5>
@@ -40,7 +42,7 @@
   <div class="card">
     <div class="card-header" role="tab" id="headingTwo">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  style="color:lightseagreen">
           What is your minimum order?	
 
         </a>
@@ -52,10 +54,11 @@
     </div>
   </div>
     </div>
+<!--
   <div class="card">
     <div class="card-header" role="tab" id="headingThree">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"  style="color:lightseagreen">
           Do you accept credit cards?
         </a>
       </h5>
@@ -66,10 +69,11 @@
       </div>
     </div>
   </div>
+-->
   <div class="card">
     <div class="card-header" role="tab" id="headingFour">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"  style="color:lightseagreen">
           	Do you provide displays?
         </a>
       </h5>
@@ -83,7 +87,7 @@
   <div class="card">
     <div class="card-header" role="tab" id="headingFive">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"  style="color:lightseagreen">
           	Do you have minimum quantities?
         </a>
       </h5>
@@ -97,49 +101,51 @@
   <div class="card">
     <div class="card-header" role="tab" id="headingSix">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix"  style="color:lightseagreen">
           	How can I receive a current catalog?
         </a>
       </h5>
     </div>
     <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
       <div class="card-block">
-       Contact us online or call our Customer Service Department at (800) 225-5826. Be sure to include the name of your business, your phone number and mailing address when requesting a catalog.
+          Fill out our online <a href="CatRequest.php">catalog request</a> form or call our Customer Service Department at 800-225-5826. 
       </div>
     </div>
   </div>
   <div class="card">
     <div class="card-header" role="tab" id="heading07">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse07" aria-expanded="false" aria-controls="collapse07"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse07" aria-expanded="false" aria-controls="collapse07"  style="color:lightseagreen">
           Do you have any showrooms?
         </a>
       </h5>
     </div>
     <div id="collapse07" class="collapse" role="tabpanel" aria-labelledby="heading07">
       <div class="card-block">
-       Yes, we have several located across the country. Contact us online or call our Customer Service Department at (800) 225-5826 for the closest one to you.
+          Yes, we have several located across the US and Canada. 
+          <a href="ContactUs.php">Contact us</a> online or call our Customer Service Department at 800-225-5826 for the closest one to you.
       </div>
     </div>
   </div>
   <div class="card">
     <div class="card-header" role="tab" id="heading08">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse08" aria-expanded="false" aria-controls="collapse08"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse08" aria-expanded="false" aria-controls="collapse08"  style="color:lightseagreen">
           Who is my local rep?
         </a>
       </h5>
     </div>
     <div id="collapse08" class="collapse" role="tabpanel" aria-labelledby="heading08">
       <div class="card-block">
-       	Contact us online or call our Customer Service Department at (800) 225-5826 and we will identify your local sales rep group.
+       	<a href="ContactUs.php">Contact us</a> online or call our Customer Service Department at 800-225-5826 and we will identify your local sales rep group.
       </div>
     </div>
   </div>
+<!--
   <div class="card">
     <div class="card-header" role="tab" id="heading09">
       <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse09" aria-expanded="false" aria-controls="collapse09"  style="color:darkturquoise">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse09" aria-expanded="false" aria-controls="collapse09"  style="color:lightseagreen">
          	Are you interested in suggestions for new products?
         </a>
       </h5>
@@ -150,6 +156,7 @@
       </div>
     </div>
   </div>
+-->
 </div>
 		
 <?php include "includes/footer.php"; ?>
