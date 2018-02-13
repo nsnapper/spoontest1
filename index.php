@@ -102,12 +102,12 @@
         echo '<div class="card" style="width: 20rem;">';
                  echo "<img class='card-img-top' src='images/$image_file' alt=$image_file img width=350 img height=350>";      
         if ($next_page !== "none"){
-            echo "<div class='card-block-product' div class='card-block'>
+            echo "<div class='card-block-product card-block'>
             <a href='prod_page.php?category=$next''><h4 class='card-title'> $page_title</h4></a>";
 
         } else {
 
-            echo "<div class='card-block-product' div class='card-block'>
+            echo "<div class='card-block-product card-block'>
             <h4 class='card-title'> $page_title</h4>";
         }
         echo "<p class='card-text'>$blurb</p>";
