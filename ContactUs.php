@@ -12,31 +12,60 @@
     <?php include "db.php"; ?>     
     <?php include "includes/logo.php"; ?>
     <?php include "includes/navbar.php"; ?>  
+    <?php require './vendor/autoload.php'; ?>
+    <?php require './classes/Config.php'; ?>
+    <?php use PHPMailer\PHPMailer\PHPMailer; ?>
  
 <?php
 
-
+$message = "";
     if(isset($_POST['submit'])){
-        $to       = "nancy@snapper.net";
+//        $to       = "nancy@snapper.net";
         $email    = $_POST['email'];
         $subject  = $_POST['subject'];
         $body     = $_POST['body'];
-        
-        if (!empty($subject) && !empty($email) && !empty($body)){
+//        
+//        if (!empty($subject) && !empty($email) && !empty($body)){
             $subject    = mysqli_real_escape_string($connection, $subject);
             $email      = mysqli_real_escape_string($connection, $email);
             $body       = mysqli_real_escape_string($connection, $body);
-
-            
+//
+//            
             $body = wordwrap($body,70);
-            mail($to,$subject,$body);
+//            mail($to,$subject,$body);
             $message = "Your info has been submitted";
-            
-        } else {
-            $message = "Fields cannot be empty";
-        }
-    } else {
-        $message = "";
+//            
+//        } else {
+//            $message = "Fields cannot be empty";
+//        }
+//    } else {
+//        $message = "";
+                    $mail = new PHPMailer();
+                    $mail->isSMTP();
+                    $mail->Host = Config::SMTP_HOST;
+                    $mail->Username = Config::SMTP_USER;
+                    $mail->Password = Config::SMTP_PASSWORD;
+                    $mail->Port = Config::SMTP_PORT;
+                    $mail->SMTPSecure = 'tls';
+                    $mail->SMTPAuth = true;
+                    $mail->isHTML(true);
+                    $mail->CharSet = 'UTF-8';
+                    $mail->setFrom('service@spoontiques.com', 'Spoontiques Customer Service');
+                    $mail->addAddress($email);
+
+                    $mail->Subject = "Web Contact Us: " . $subject;
+                    
+                    $mail->Body = "From: " . $email . " " . '<p>' . $body . '</p>';
+                    if($mail->send()){
+
+                        $emailSent = true;
+
+                    } else{
+
+                        echo "NOT SENT";
+
+                    }
+
     }
 ?>
 

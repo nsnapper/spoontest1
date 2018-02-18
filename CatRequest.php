@@ -9,9 +9,88 @@
     
  
  <body>
-     
+    <?php include "db.php"; ?>       
     <?php include "includes/logo.php"; ?>
-    <?php include "includes/navbar.php"; ?>  
+    <?php include "includes/navbar.php"; ?>
+    <?php require './vendor/autoload.php'; ?>
+    <?php require './classes/Config.php'; ?>
+    <?php use PHPMailer\PHPMailer\PHPMailer; ?>  
+        
+<?php
+
+$message = "";
+    if(isset($_POST['submit'])){
+        $to             = "nancy@snapper.net";
+        $storeName      = $_POST['storeName'];
+        $firstName      = $_POST['firstName'];
+        $lastName       = $_POST['lastName'];
+        $address1       = $_POST['address1'];
+        $address2       = $_POST['address2'];
+        $city           = $_POST['city'];
+        $state          = $_POST['state'];
+        $zip            = $_POST['zip'];
+        $phone          = $_POST['phone'];
+        $email          = $_POST['email'];
+        $taxId          = $_POST['taxId'];
+        $products       = $_POST['products'];
+        $businessType   = $_POST['businessType'];
+        $businessURL    = $_POST['businessURL'];
+        
+        $storeName      = mysqli_real_escape_string($connection, $storeName);
+        $firstName      = mysqli_real_escape_string($connection, $firstName);
+        $lastName      = mysqli_real_escape_string($connection, $lastName);
+        $address1       = mysqli_real_escape_string($connection, $address1);
+        $address2       = mysqli_real_escape_string($connection, $address2);
+        $city           = mysqli_real_escape_string($connection, $city);
+        $state          = mysqli_real_escape_string($connection, $state);
+        $zip            = mysqli_real_escape_string($connection, $zip);
+        $phone          = mysqli_real_escape_string($connection, $phone);
+        $email          = mysqli_real_escape_string($connection, $email);
+        $taxId          = mysqli_real_escape_string($connection, $taxId);
+        $products       = mysqli_real_escape_string($connection, $products);
+        $businessType   = mysqli_real_escape_string($connection, $businessType);
+        $businessURL    = mysqli_real_escape_string($connection, $businessURL);
+        
+        $mail = new PHPMailer();
+        $mail->isSMTP();
+        $mail->Host = Config::SMTP_HOST;
+        $mail->Username = Config::SMTP_USER;
+        $mail->Password = Config::SMTP_PASSWORD;
+        $mail->Port = Config::SMTP_PORT;
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPAuth = true;
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
+        $mail->setFrom('service@spoontiques.com', 'Spoontiques Customer Service');
+        $mail->addAddress($to);
+
+        $mail->Subject = "Web Catalog Request";
+        
+        $body = "<p>Store Name: " . $storeName . "</p>";
+        $body .= "<p>Name: " . $firstName . " " . $lastName . "</p>";   
+        $body .= "<p>Address 1: " . $address1 . "</p>";
+        $body .= "<p>Address 2: " . $address2 . "</p>";
+        $body .= "<p>City State Zip: " . $city . ", " . $state . "  " . $zip . "</p>";
+        $body .= "<p>Phone: " . $phone . "</p>";
+        $body .= "<p>email: " . $email . "</p>";
+        $body .= "<p>taxId: " . $taxId . "</p>";
+        $body .= "<p>interest: " . $products . "</p>";
+        $body .= "<p>business type: " . $businessType . "</p>";
+        $body .= "<p>business URL: " . $businessURL . "</p>";
+
+        $mail->Body = $body;
+        if($mail->send()){
+
+            $emailSent = true;
+
+        } else{
+
+            echo "Error ocurred.  The email request was not sent.";
+
+        }
+
+    }
+?>
          
           
         <div id="Note">

@@ -32,11 +32,18 @@ h5 {
 #footer {
     background-color: lightseagreen;
     padding-top: 10px;
-    margin-top: 50px;
+    margin-top: 5px;
     text-align: center;
     padding-bottom: 5px;
     font color: black;
 }
+
+#footerNote {
+    text-align: center;
+    font color: black;
+}
+
+
 
 
 
