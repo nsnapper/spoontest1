@@ -34,7 +34,7 @@
 
         }
         echo "<div id='Products'>";
-            echo "<h1 class='subtitle'>$category_title</h1>";
+            echo "<p class='subtitle'>$category_title</p>";
          echo "</div>";
 
     }
@@ -88,7 +88,7 @@
          echo "<img class='card-img-top' src='images/$image_file' alt=$image_file img width=300 img height=300>";      
         if ($next_page !== "none"){
             echo "<div class='card-block-product card-block'>
-            <a href='prod_page.php?category=$next''><h4 class='card-title'> $page_title</h4></a>";
+            <a href='prod_page.php?category=$next''><p class='card-title'> $page_title</p></a>";
 
         } else {
 
@@ -126,7 +126,8 @@ if($count < 3){
         </div>
     </div>
 	
-          
+<?php include "includes/bottom_note.php"; ?>
+         
 <?php include "includes/footer.php"; ?>
 		
   </body>

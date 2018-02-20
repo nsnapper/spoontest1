@@ -35,10 +35,11 @@ $message = "";
         $products       = $_POST['products'];
         $businessType   = $_POST['businessType'];
         $businessURL    = $_POST['businessURL'];
+        $localRep       = $_POST['localRep'];
         
         $storeName      = mysqli_real_escape_string($connection, $storeName);
         $firstName      = mysqli_real_escape_string($connection, $firstName);
-        $lastName      = mysqli_real_escape_string($connection, $lastName);
+        $lastName       = mysqli_real_escape_string($connection, $lastName);
         $address1       = mysqli_real_escape_string($connection, $address1);
         $address2       = mysqli_real_escape_string($connection, $address2);
         $city           = mysqli_real_escape_string($connection, $city);
@@ -50,6 +51,7 @@ $message = "";
         $products       = mysqli_real_escape_string($connection, $products);
         $businessType   = mysqli_real_escape_string($connection, $businessType);
         $businessURL    = mysqli_real_escape_string($connection, $businessURL);
+        $localRep       = mysqli_real_escape_string($connection, $localRep);
         
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -77,15 +79,17 @@ $message = "";
         $body .= "<p>interest: " . $products . "</p>";
         $body .= "<p>business type: " . $businessType . "</p>";
         $body .= "<p>business URL: " . $businessURL . "</p>";
+        $body .= "<p>Have local rep contact me: " . $localRep . "</p>";
 
         $mail->Body = $body;
         if($mail->send()){
 
             $emailSent = true;
+            header("Location:" . "success.php");
 
-        } else{
+        } else {
 
-            echo "Error ocurred.  The email request was not sent.";
+            echo "Error occured.  Your message was not sent.";
 
         }
 
@@ -95,7 +99,7 @@ $message = "";
           
         <div id="Note">
         
-         <h5>Please note: We sell only to approved retailers with a valid resale certificate.</h5>
+         <p class="pageNote">Please note: We sell only to approved retailers with a valid resale certificate.</p>
 
          </div>
 <section id="login">
@@ -103,9 +107,9 @@ $message = "";
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
-                <h1>Catalog Request</h1>
+                <p class="subtitle">Catalog Request</p>
                     <form role="form" action="CatRequest.php" method="post" id="cat-request-form" autocomplete="off">
-                       <h4 class="text-center">* indicates a required field</h4>
+                       <p>* indicates a required field</p>
 
                        <div class="form-group">
                             <input type="text" name="storeName" id="storeName" class="form-control" placeholder="* Store Name" required>
@@ -149,6 +153,9 @@ $message = "";
                         <div class="form-group">
                             <input type="text" name="businessURL" id="businessURL" class="form-control" placeholder="Business Website">
                         </div>                        
+                        <div class="form-group">
+                            <input type="text" name="localRep" id="localRep" class="form-control" placeholder="Would you like your local rep to contact you?">
+                        </div>  
                         <div class="g-recaptcha" data-sitekey="6Ldx5UQUAAAAAF6YYFpwAWSCkvs4Pj5cBz3lrKjk"></div>
                         <input type="submit" name="submit" id="btn-submit" class="btn btn-custom btn-lg btn-block" value="Submit">
                     </form>

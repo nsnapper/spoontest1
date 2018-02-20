@@ -14,10 +14,10 @@
 <?php include "includes/logo.php"; ?>
 <?php include "includes/navbar.php"; ?>  
 
-<div class = "subtitle" id="FAQ">
+<divid="FAQ">
 
     <div class="row">
-         <h1>Frequently Asked Questions</h1>
+         <p class="subtitle">Frequently Asked Questions</p>
     </div>
 
 </div> 

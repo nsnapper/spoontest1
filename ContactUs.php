@@ -59,10 +59,11 @@ $message = "";
                     if($mail->send()){
 
                         $emailSent = true;
+                        header("Location:" . "success.php");
 
                     } else{
 
-                        echo "NOT SENT";
+                        echo "Error occured.  Your message was not sent.";
 
                     }
 
@@ -76,7 +77,7 @@ $message = "";
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
-                <h1>Contact Us</h1>
+                <p class="subtitle">Contact Us</p>
                     <form role="form" action="ContactUs.php" method="post" id="contact-form" autocomplete="off">
                        <h4 class="text-center"><?php echo $message; ?></h4>
 

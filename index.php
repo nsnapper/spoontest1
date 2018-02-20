@@ -51,9 +51,9 @@
     </div>
 -->
          
-   	<div class="subtitle" id="Products">
+   	<div id="Products">
 		<div class="row">
-			<h1>Products</h1>
+			<p class="subtitle">Products</p>
         </div>
 	</div>
     <div class="container">
