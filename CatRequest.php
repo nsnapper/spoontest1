@@ -136,7 +136,7 @@ $message = "";
                             <input type="text" name="zip" id="zip" class="form-control" placeholder="* Zip or Postal Code" required>
                         </div>
                          <div class="form-group">
-                            <input type="text" name="phone" id="phone" class="form-control" placeholder="* Phone" required>
+                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="* Phone" required>
                         </div>
                          <div class="form-group">
                             <input type="email" name="email" id="email" class="form-control" placeholder="* Email Address" required>
