@@ -27,6 +27,8 @@ if(isset($_GET['category'])){
 } else if ($CurrentPage == $AddCatPage) {
     $AddCatClass = 'active';
 } else if ($CurrentPage == $ProductsPage) {
+    $ProductsClass = 'active';
+} else if ($CurrentPage == $AddProductPage) {
     $AddProductClass = 'active';
 }
 

@@ -139,7 +139,7 @@ if($count < 3){
 ?>
 </div></div></div>
 	
-          
+<?php include "includes/bottom_note.php"; ?>         
 <?php include "includes/footer.php"; ?>
 		
 

@@ -1,79 +1,79 @@
-<?php include "admin_header.php" ?>
+<?php
+  require_once('includes/authorize.php');
+?>
+<!DOCTYPE html>
 
-    <div id="wrapper">
+<?php include "functions.php"; ?>
+<?php include "db.php"; ?>
 
-        <!-- Navigation -->
- 
-        <?php include "admin_navigation.php" ?>
+<html lang="en">
+
+<head>
+    <?php include "includes/common_head.php"; ?>
+</head>
     
+<body>
+    <?php include "includes/admin_navbar.php"; ?> 
+    
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Page Name</th>
+            <th>Page Blurb</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
 
-<div id="page-wrapper">
+    </thead>
+    <tbody>
+        <?php
+        
+            $query = "SELECT * FROM pagetable ORDER BY PageTableName ASC";  
+            $select_categories = mysqli_query($connection, $query);             
+            while($row = mysqli_fetch_assoc($select_categories)){
+                $page_id =    escape($row['PageTableId']);
+                $page_name =  escape($row['PageTableName']);
+                $page_blurb = escape($row['PageTableBlurb']);
+ 
+                echo "<tr>";
+                echo "<td>$page_id</td>";
+                echo "<td>$page_name</td>";
+                echo "<td>$page_blurb</td>";
+                
+//                                echo "<td><a class='btn btn-info' href='products.php?source=edit_product&edit_product={$system_id}'>Edit</a></td>"; 
 
-<div class="container-fluid">
+                
+                echo "<td><a class='btn btn-info' href='edit_category.php?edit_category={$page_id}'>Edit</a></td>"; 
+                
+                echo "<td><a class='btn btn-danger' onClick=\"javascript: return confirm('Are you sure you want to delete this category?'); \" href='categories.php?delete={$page_id}'>Delete</a></td>"; 
+                echo "</tr>";
 
-    <!-- Page Heading -->
-    <div class="row">
-        <div class="col-lg-12">
+            }
 
-  <h1 class="page-header">
-                Welcome to admin
-                <small>Nancy Michele</small>
-            </h1>
+
+        ?>
+
+      </tbody>
+
+</table>
+<?php include "includes/footer.php"; ?>
+
+</body>
+
+
 <?php
 
-if(isset($_GET['source'])){
+    if(isset($_GET['delete'])){
 
-$source = $_GET['source'];
-
-} else {
-
-$source = '';
+        $category_id = $_GET['delete'];
+        $query = "DELETE FROM pagetable WHERE PageTableId = {$category_id}";
+        $delete_query = mysqli_query($connection, $query);
+        header("Location: categories.php");
 
 }
-
-switch($source) {
-    
-    case 'add_category';
-    
-     include "add_category.php";
-    
-    break; 
-    
-    
-    case 'edit_category';
-    
-    include "edit_category.php";
-    break;
-    
-    
-    default:
-    
-    include "view_all_categories.php";
-    
-    break;
-    
-}
-
+       
+ 
 
 ?>
-
-            </div>
-        </div>
-        <!-- /.row -->
-
-    </div>
-    <!-- /.container-fluid -->
-
-</div>
-
-     
-        <!-- /#page-wrapper -->
-        
-  		
-        <div id="footer">
-		
-			<div class="row">
-				<p class="footer"><font color = "white">Copyright © 2017 Spoontiques. All Rights Reserved.</p>
-			</div>
-		</div>
 
