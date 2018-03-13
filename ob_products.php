@@ -70,9 +70,9 @@
                 echo "<td>$blurb</td>";
                 echo "<td>$link_to_page_title</td>";
                 
-                echo "<td><a class='btn btn-info' href='edit_product.php?edit_product={$system_id}'>Edit</a></td>"; 
+                echo "<td><a class='btn btn-info' href='ob_edit_product.php?edit_product={$system_id}'>Edit</a></td>"; 
                 
-                echo "<td><a class='btn btn-danger' onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='products.php?delete={$system_id}'>Delete</a></td>"; 
+                echo "<td><a class='btn btn-danger' onClick=\"javascript: return confirm('Are you sure you want to delete this product?'); \" href='ob_products.php?delete={$system_id}'>Delete</a></td>"; 
 
                 echo "</tr>";
 
@@ -96,7 +96,7 @@
         $query = "DELETE FROM websitelayout WHERE System_ID = {$system_id}";
         $delete_query = mysqli_query($connection, $query);
         confirm($delete_query);
-        header("Location: products.php");
+        header("Location: ob_products.php");
 
 }
 

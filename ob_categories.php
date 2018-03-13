@@ -44,9 +44,9 @@
 //                                echo "<td><a class='btn btn-info' href='products.php?source=edit_product&edit_product={$system_id}'>Edit</a></td>"; 
 
                 
-                echo "<td><a class='btn btn-info' href='edit_category.php?edit_category={$page_id}'>Edit</a></td>"; 
+                echo "<td><a class='btn btn-info' href='ob_edit_category.php?edit_category={$page_id}'>Edit</a></td>"; 
                 
-                echo "<td><a class='btn btn-danger' onClick=\"javascript: return confirm('Are you sure you want to delete this category?'); \" href='categories.php?delete={$page_id}'>Delete</a></td>"; 
+                echo "<td><a class='btn btn-danger' onClick=\"javascript: return confirm('Are you sure you want to delete this category?'); \" href='ob_categories.php?delete={$page_id}'>Delete</a></td>"; 
                 echo "</tr>";
 
             }
@@ -69,7 +69,7 @@
         $category_id = $_GET['delete'];
         $query = "DELETE FROM pagetable WHERE PageTableId = {$category_id}";
         $delete_query = mysqli_query($connection, $query);
-        header("Location: categories.php");
+        header("Location: ob_categories.php");
 
 }
        
