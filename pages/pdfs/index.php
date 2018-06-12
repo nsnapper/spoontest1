@@ -19,7 +19,7 @@
 <div id="pdf_lists">
     <ul class="list-group">
         <li class="list-group-item"><a href='documents/2018Catalog.pdf'><img width='100' src='images/cover.jpg' alt='images'>Spoontiques January 2018 Catalog</a></li>
-        <li class="list-group-item"><a href='documents/Americana2018.pdf'><img width='100' src='images/13040.jpg' alt='images'>Americana 2018</a></li>
+        <li class="list-group-item"><a href='documents/Americana2018.pdf'><img width='100' src='images/13041.jpg' alt='images'>Americana 2018</a></li>
         <li class="list-group-item"><a href='sections.php'><img width='100' src='images/sections.jpg' alt='images'>Individual Sections</a></li>
         <li class="list-group-item"><a href='licenses.php'><img width='100' src='images/licenses.jpg' alt='images'>Individual Licenses</a></li>
    </ul>    
