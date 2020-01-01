@@ -118,7 +118,7 @@
         
 //        echo "<tr>";
 //        echo "<td>{$image_file}</td>";
-//        echo "<td><img width='100' src='images/$image_file' alt='images'></td>";
+//        echo "<td><img width='100' src='cms_images/$image_file' alt='images'></td>";
 
     }
 if($count < 3){

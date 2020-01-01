@@ -16,7 +16,7 @@ if (getenv("CLEARDB_DATABASE_URL") != null) {
     $db['db_host'] = "localhost";
     $db['db_user'] = "root";
     $db['db_pass'] = "root";
-    $db['db_name'] = "spoontiqueswebsite";
+    $db['db_name'] = "git_db_test"; // "spoontiqueswebsite";
     $connection = mysqli_connect($db['db_host'], $db['db_user'], $db['db_pass'], $db['db_name']);
 }
 //foreach($db as $key => $value){

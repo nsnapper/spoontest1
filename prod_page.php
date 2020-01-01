@@ -85,7 +85,7 @@
         }
         
         echo '<div class="card" style="width: 20rem;">';
-         echo "<img class='card-img-top' src='images/$image_file' alt=$image_file img width=300 img height=300>";      
+         echo "<img class='card-img-top' src='cms_images/$image_file' alt=$image_file img width=300 img height=300>";      
         if ($next_page !== "none"){
             echo "<div class='card-block-product card-block'>
             <a href='prod_page.php?category=$next''><p class='card-title'> $page_title</p></a>";
@@ -106,14 +106,14 @@ if($count < 3){
     $image_file = "sections.jpg";
     if($count == 1) {
         echo '<div class="card" style="width: 20rem;">';
-//        echo "<img class='card-img-top' src='images/$image_file' alt=$image_file img width=300 img height=300>";    
+//        echo "<img class='card-img-top' src='cms_images/$image_file' alt=$image_file img width=300 img height=300>";    
 //        echo "<div class='card-block'>";
 //        echo "<p class='card-text'></p>";
 //        echo "</div>";
         echo '</div>';
     }
     echo '<div class="card" style="width: 20rem;">';
-//    echo "<img class='card-img-top' src='images/$image_file' alt=$image_file img width=300 img height=300>";    
+//    echo "<img class='card-img-top' src='cms_images/$image_file' alt=$image_file img width=300 img height=300>";    
 //    echo "<div class='card-block'>";
 //    echo "<p class='card-text'></p>";
 //    echo "</div>";

@@ -62,7 +62,7 @@
         $prod_image_temp   = ($_FILES['prod_image']['tmp_name']);
         $blurb             = escape($_POST['blurb']);
         $link_to           = escape($_POST['link_to']);
-        move_uploaded_file($prod_image_temp,"images/$prod_image");
+        move_uploaded_file($prod_image_temp,"cms_images/$prod_image");
         
         if(empty($prod_image)) {
             $query = "SELECT * FROM websitelayout WHERE System_ID = $product_id"; 
@@ -130,7 +130,7 @@
 
         <div class="form-group">
             <label for="prod_image">Image</label>
-            <img src="images/<?php echo $prod_image; ?>" width="100" alt="">
+            <img src="cms_images/<?php echo $prod_image; ?>" width="100" alt="">
             <input type="file" name="prod_image">
         </div>
 
