@@ -21,13 +21,13 @@
 
         <li class="list-group-item"><a href='documents/ZTX-Uniform-Sales-and-Use-Certificate-3-2019.pdf'>Multi-State Sales and Use Certificate</a></li>
         <li class="list-group-item"><a href='documents/ZTX-Streamlined-Sales-Tax-Agreement.pdf'>Streamlined Sales Tax Agreement</a></li>
-        <li class="list-group-item"><a href='documents/ZTX-CA-cdtfa230.pdf'>California Form ST-105</a></li>
-        <li class="list-group-item"><a href='documents/ZTX-CT-resalecert.pdf'>Connecticut Form ST-105</a></li>
+        <li class="list-group-item"><a href='documents/ZTX-CA-cdtfa230.pdf'>California Form Resale Certificate</a></li>
+        <li class="list-group-item"><a href='documents/ZTX-CT-resalecert.pdf'>Connecticut Resale Certificate</a></li>
         <li class="list-group-item"><a href='documents/ZTX-DC-2012_otr_368_fill-in.pdf'>District of Columbia Form OTR 368</a></li>
         <li class="list-group-item"><a href='documents/ZTX-IN-ST-105.pdf'>Indiana Form ST-105</a></li>
-        <li class="list-group-item"><a href='documents/ZTX-KY-51A105.pdf'>Kentucky Form ST-105</a></li>
+        <li class="list-group-item"><a href='documents/ZTX-KY-51A105.pdf'>Kentucky Form 51A105</a></li>
         <li class="list-group-item"><a href='documents/ZTX-LA-Resale-Certificate.pdf'>Louisiana Resale Certificate</a></li>
-        <li class="list-group-item"><a href='documents/ZTX-MD-Blanket-Cert.pdf'>Maryland Form ST-105</a></li>
+        <li class="list-group-item"><a href='documents/ZTX-MD-Blanket-Cert.pdf'>Maryland Form Blanket Certificate</a></li>
         <li class="list-group-item"><a href='documents/ZTX-MA-dor-sales-use-form-st-4.pdf'>Massachusetts Form ST-4</a></li>
         <li class="list-group-item"><a href='documents/ZTX-MI-3372_216612_7.pdf'>Michigan Form 3372</a></li>
         <li class="list-group-item"><a href='documents/ZTX-MS-Exempt-Affidavit.pdf'>Mississippi Exemption Affidavit</a></li>
