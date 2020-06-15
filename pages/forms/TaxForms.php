@@ -20,6 +20,7 @@
     <ul class="list-group">
 
         <li class="list-group-item"><a href='documents/ZTX-Uniform-Sales-and-Use-Certificate-3-2019.pdf'>Multi-State Sales and Use Certificate</a></li>
+        <li class="list-group-item"><a href='documents/ZTX-AR-ST-391-012008.pdf'>Arkansas</a></li>
         <li class="list-group-item"><a href='documents/ZTX-CA-CDTFA-230-0817.pdf'>California</a></li>
         <li class="list-group-item"><a href='documents/ZTX-CT-Resale-Cert.pdf'>Connecticut</a></li>
         <li class="list-group-item"><a href='documents/ZTX-DC-OTR-368-2012.pdf'>District of Columbia</a></li>
@@ -35,6 +36,7 @@
         <li class="list-group-item"><a href='documents/ZTX-OR-150-800-002-0317.pdf'>Oregon</a></li>
         <li class="list-group-item"><a href='documents/ZTX-PA-REV-1220-0517.pdf'>Pennsylvania</a></li>
         <li class="list-group-item"><a href='documents/ZTX-TX-01-339-0413.pdf'>Texas</a></li>
+        <li class="list-group-item"><a href='documents/ZTX-VT-S-3-0913.pdf'>Vermont</a></li>
         <li class="list-group-item"><a href='documents/ZTX-VA-ST-10-0417.pdf'>Virginia</a></li>
         <li class="list-group-item"><a href='documents/ZTX-WY-ETS-Form-101.pdf'>Wyoming</a></li>   </ul>    
    
