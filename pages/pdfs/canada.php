@@ -18,9 +18,11 @@
 <div id="pdf_lists">
     <ul class="list-group">
         <li class="list-group-item"><a href='documents/CanadianFullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2020 Catalog with Canadian Pricing</a></li>
-         <li class="list-group-item"><a href='documents/CanadianSummer2020.pdf'><img width='100' src='images/Summer2020.jpg' alt='images'>New for Summer 2020 with Canadian Pricing</a></li>
         <li class="list-group-item"><a href='CanadianSections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections with Canadian Pricing</a></li>
         <li class="list-group-item"><a href='CanadianLicenses.php'><img width='100' src='images/licenses.jpg' alt='images'>Individual Licenses with Canadian Pricing</a></li>
+        <li class="list-group-item"><a href='documents/CanadianSummer2020.pdf'><img width='100' src='images/Summer2020.jpg' alt='images'>New for Summer 2020 with Canadian Pricing</a></li>
+        <li class="list-group-item"><a href='documents/CanadianHoliday2020FaceMasks.pdf'><img width='100' src='images/CanadianHoliday2020FaceMasks.jpg' alt='images'>Holiday Face Masks - Available Oct, 1, 2020</a></li>
+        <li class="list-group-item"><a href='documents/CanadianHoliday2020HairWraps.pdf'><img width='100' src='images/CanadianHoliday2020HairWraps.jpg' alt='images'>Holiday Hair and Face Wraps - Available Oct, 1, 2020</a></li>
    </ul>    
    
 </div>

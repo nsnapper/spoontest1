@@ -19,9 +19,11 @@
 <div id="pdf_lists">
     <ul class="list-group">
         <li class="list-group-item"><a href='documents/FullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2020 Catalog</a></li>
-        <li class="list-group-item"><a href='documents/Summer2020.pdf'><img width='100' src='images/Summer2020.jpg' alt='images'>New for Summer 2020</a></li>
         <li class="list-group-item"><a href='sections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections</a></li>
         <li class="list-group-item"><a href='licenses.php'><img width='100' src='images/Licenses2020.jpg' alt='images'>Individual Licenses</a></li>
+        <li class="list-group-item"><a href='documents/Summer2020.pdf'><img width='100' src='images/Summer2020.jpg' alt='images'>New for Summer 2020</a></li>
+        <li class="list-group-item"><a href='documents/Holiday2020FaceMasks.pdf'><img width='100' src='images/Holiday2020FaceMasks.jpg' alt='images'>Holiday Face Masks - Available Oct 1, 2020</a></li>
+        <li class="list-group-item"><a href='documents/Holiday2020HairWraps.pdf'><img width='100' src='images/Holiday2020HairWraps.jpg' alt='images'>Holiday Hair and Face Wraps - Available Oct 1, 2020</a></li>
    </ul>    
    
 </div>
