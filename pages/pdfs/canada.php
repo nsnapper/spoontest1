@@ -20,9 +20,7 @@
         <li class="list-group-item"><a href='documents/CanadianFullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2020 Catalog with Canadian Pricing</a></li>
         <li class="list-group-item"><a href='CanadianSections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections with Canadian Pricing</a></li>
         <li class="list-group-item"><a href='CanadianLicenses.php'><img width='100' src='images/licenses.jpg' alt='images'>Individual Licenses with Canadian Pricing</a></li>
-        <li class="list-group-item"><a href='documents/CanadianSummer2020.pdf'><img width='100'
-        src='images/Summer2020.jpg' alt='images'>New for Summer 2020 with Canadian Pricing</a></li>
-        <li class="list-group-item"><a href='documents/CanadianFall2020PPE.pdf'><img width='100' src='images/PPE.jpg' alt='images'>Personal Protection with Canadian Pricing</a></li>
+
 
    </ul>    
    
