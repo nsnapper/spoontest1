@@ -21,10 +21,10 @@
         <li class="list-group-item"><a href='documents/FullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2021 Catalog</a></li>
         <li class="list-group-item"><a href='sections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections</a></li>
         <li class="list-group-item"><a href='licenses.php'><img width='100' src='images/Licenses2020.jpg' alt='images'>Individual Licenses</a></li>
-/*!
-*        <li class="list-group-item"><a href='documents/Summer2020.pdf'><img width='100' src='images/Summer2020.jpg' alt='images'>New for Summer 2020</a></li>
-*        <li class="list-group-item"><a href='documents/Fall2020PPE.pdf'><img width='100' src='images/PPE.jpg' alt='images'>Personal Protection</a></li>
-*/
+<!--
+        <li class="list-group-item"><a href='documents/Summer2020.pdf'><img width='100' src='images/Summer2020.jpg' alt='images'>New for Summer 2020</a></li>
+       <li class="list-group-item"><a href='documents/Fall2020PPE.pdf'><img width='100' src='images/PPE.jpg' alt='images'>Personal Protection</a></li>
+-->
    </ul>    
    
 </div>
