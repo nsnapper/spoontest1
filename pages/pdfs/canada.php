@@ -17,7 +17,7 @@
     
 <div id="pdf_lists">
     <ul class="list-group">
-        <li class="list-group-item"><a href='documents/CanadianFullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2020 Catalog with Canadian Pricing</a></li>
+        <li class="list-group-item"><a href='documents/CanadianFullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2021 Catalog with Canadian Pricing</a></li>
         <li class="list-group-item"><a href='CanadianSections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections with Canadian Pricing</a></li>
         <li class="list-group-item"><a href='CanadianLicenses.php'><img width='100' src='images/licenses.jpg' alt='images'>Individual Licenses with Canadian Pricing</a></li>
 

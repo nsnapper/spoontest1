@@ -18,7 +18,7 @@
      
 <div id="pdf_lists">
     <ul class="list-group">
-        <li class="list-group-item"><a href='documents/FullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2020 Catalog</a></li>
+        <li class="list-group-item"><a href='documents/FullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2021 Catalog</a></li>
         <li class="list-group-item"><a href='sections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections</a></li>
         <li class="list-group-item"><a href='licenses.php'><img width='100' src='images/Licenses2020.jpg' alt='images'>Individual Licenses</a></li>
 /*!
