@@ -19,8 +19,11 @@
 <div id="pdf_lists">
     <ul class="list-group">
 <!--        <li class="list-group-item"><a href='documents/CanadianAuntyAcid.pdf'><img width='100' src='images/AuntyAcid.jpg' alt='images'>Aunty Acid</a></li>-->
+        <li class="list-group-item"><a href='documents/CanadianChristmasStory.pdf'><img width='100' src='images/ChristmasStory.jpg' alt='images'>A Christmas Story</a></li>
         <li class="list-group-item"><a href='documents/CanadianBetty.pdf'><img width='100' src='images/BettyBoop.jpg' alt='images'>Betty Boop</a></li>
+        <li class="list-group-item"><a href='documents/CanadianChristmasVacation.pdf'><img width='100' src='images/ChristmasVacation.jpg' alt='images'>Christmas Vacation</a></li>
         <li class="list-group-item"><a href='documents/CanadianDCComics.pdf'><img width='100' src='images/DCComics.jpg' alt='images'>DC Comics</a></li>
+        <li class="list-group-item"><a href='documents/CanadianElf.pdf'><img width='100' src='images/Elf.jpg' alt='images'>Elf</a></li>
         <li class="list-group-item"><a href='documents/CanadianElvis.pdf'><img width='100' src='images/Elvis.jpg' alt='images'>Elvis Presley</a></li>
         <li class="list-group-item"><a href='documents/CanadianFriends.pdf'><img width='100' src='images/Friends.jpg' alt='images'>Friends</a></li>
         <li class="list-group-item"><a href='documents/CanadianHarryPotter.pdf'><img width='100' src='images/HarryPotter.jpg' alt='images'>Harry Potter</a></li>
