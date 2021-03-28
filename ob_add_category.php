@@ -23,9 +23,9 @@
         $page_name         = escape($_POST['page_name']);
         $page_blurb        = escape($_POST['page_blurb']);     
         
-        $query = "INSERT INTO pagetable(PageTableName, PageTableBlurb)";
+        $query = "INSERT INTO pagetable(PageTableName, PageTableBlurb, PageTableImage)";
         
-        $query .="VALUES('{$page_name}', '{$page_blurb}')";       
+        $query .="VALUES('{$page_name}', '{$page_blurb}', ' ')";
 
         $add_category_query = mysqli_query($connection, $query);
 
