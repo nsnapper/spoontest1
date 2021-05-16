@@ -43,7 +43,6 @@
 
 <form action="" method="post" enctype="multipart/form-data">    
     <div class="container">
-       
         <div class="form-group">
             <select name="display_page" id="">
 

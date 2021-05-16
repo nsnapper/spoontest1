@@ -28,7 +28,7 @@
     <div class="card-header" role="tab" id="heading01">
       <h5 class="mb-0" >
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse01" aria-expanded="true" aria-controls="collapse01" style="color:lightseagreen">
-            Do you sell directly to collectors?
+            Do you sell directly to consumers?
         </a>
       </h5>
     </div>
@@ -50,7 +50,7 @@
     </div>
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-block">
-        Our minimum order is $150 USD, $250 CAD.
+        Our minimum order is $170 USD, $275 CAD.
     </div>
   </div>
     </div>
@@ -94,7 +94,7 @@
     </div>
     <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
       <div class="card-block">
-       With certain exceptions as noted in the catalog, most items can be ordered with a minimum quantity of one.
+       Yes.  With certain exceptions as noted in the catalog, items must be ordered with a minimum quantity of two.
       </div>
     </div>
   </div>
