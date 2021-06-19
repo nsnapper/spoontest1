@@ -18,7 +18,6 @@
      
 <div id="pdf_lists">
     <ul class="list-group">
-
         <li class="list-group-item"><a href='documents/ZTX-Uniform-Sales-and-Use-Certificate-3-2019.pdf'>Multi-State Sales and Use Certificate</a></li>
         <li class="list-group-item"><a href='documents/ZTX-Streamlined-Sales-Tax-Agreement.pdf'>Streamlined Sales and Use Tax Agreement/a></li>
         <li class="list-group-item"><a href='documents/ZTX-AZ-5000A-0517.pdf'>Arizona</a></li>
