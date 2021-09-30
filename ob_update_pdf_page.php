@@ -77,7 +77,7 @@
 <?php
     $redirect_func = "";
     if(isset($_POST['update_pdf_page'])) {
-      $redirect_func = "<script>window.location = '/~bill/spoontest/ob_pdf_pages.php';</script>";
+      $redirect_func = "<script>window.location = '<?= $app_root_dir ?>/ob_pdf_pages.php';</script>";
     }
 
 ?>

@@ -21,7 +21,7 @@
           if (count($pdf_pages) > 0) {
             foreach ($pdf_pages as &$pp) {
               echo("<!-- Page Image: {$pp->get_image()} -->");
-              echo("<li class='list-group-item'><a href='pages/pdfs/catalogs.php?ppid={$pp->get_id()}'><img width='100' src='" . "site_images/{$pp->get_image()}" . "' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
+              echo("<li class='list-group-item'><a href='pages/pdfs/catalogs.php?ppid={$pp->get_id()}'><img width='100' src='" . "$pdf_file_dir_path/{$pp->get_image()}" . "' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
             }
           } else {
             echo("<li class='list-group-item'>No pages found...</li>");

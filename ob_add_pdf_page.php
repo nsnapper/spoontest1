@@ -50,7 +50,7 @@
 <?php
     $redirect_func = "";
     if(isset($_POST['add_pdf_page'])) {
-      $redirect_func = "<script>window.location = '/~bill/spoontest/ob_products.php';</script>";
+      $redirect_func = "<script>window.location = '<?= $app_root_dir ?>/ob_products.php';</script>";
     }
 
 ?>

@@ -20,48 +20,11 @@
 <?php
     
     $update_status = "";
-    error_log("ob_add_pdf_file");
+    error_log("ob_update_pdf_file");
     // TODO: This is a future to allow for nested pages.  0 == root page
     $parent_page_id = 0;
     if (isset($_GET['ppid'])) {
       $parent_page_id = $_GET['ppid'];
-    }
-    
-    if (isset($_POST['add_pdf_page'])) {
-      error_log("ob_add_pdf_file: Adding new PDF...", 0);
-
-      $title             = escape($_POST['title']);
-      $description       = escape($_POST['description']);
-
-      $pdf_page_id       = $_POST['pdf_page_id'];
-
-      // Thumbnail image for PDF file
-      $pdf_image         = escape($_FILES['pdf_image']['name']);
-      $pdf_image_temp    = ($_FILES['pdf_image']['tmp_name']);
-      move_uploaded_file($pdf_image_temp,"$pdf_file_dir_path/$pdf_image");
-      
-      // PDF file itself
-      $pdf_filename         = escape($_FILES['pdf_filename']['name']);
-      $pdf_filename_temp    = ($_FILES['pdf_filename']['tmp_name']);
-      move_uploaded_file($pdf_filename_temp,"$pdf_file_dir_path/$pdf_filename");
-      
-      $query = "INSERT INTO pdf_links(title, pdf_filename, pdf_image, pdf_page_id)";
-      
-      $query .="VALUES('{$title}', '{$pdf_filename}','{$pdf_image}','{$pdf_page_id}')";
-
-      error_log("Adding new PDF File: $pdf_filename, Thumbnail: $pdf_image", 0);
-      $add_product_query = mysqli_query($connection, $query);
-
-      confirm($add_product_query);
-      $update_status = "Successfully updated $title.";
-    }
-    
-?>
-
-<?php
-    $redirect_func = "";
-    if(isset($_POST['update_pdf_file'])) {
-      $redirect_func = "<script>window.location = '/~bill/spoontest/ob_pdf_files.php';</script>";
     }
 
     $pfid = 0;
@@ -75,7 +38,54 @@
     if ($pdf_file == null) {
       die("INVALID PDF file id");
     }
-    error_log("update_pff_file: File Title: {$pdf_file->get_title()}");
+    error_log("update_pdf_file: File Title: {$pdf_file->get_title()}");
+    
+    if (isset($_POST['update_pdf_file'])) {
+      error_log("ob_add_pdf_file: Updating Existing PDF with ID: $pfid...", 0);
+
+      $title             = escape($_POST['title']);
+      if (trim($title) != trim($pdf_file->get_title())) {
+        $pdf_file->set_title(trim($title));
+      }
+
+      $pdf_page_id       = $_POST['pdf_page_id'];
+      if (trim($pdf_page_id) != trim($pdf_file->get_pdf_page_id())) {
+        $pdf_file->set_pdf_page_id($pdf_page_id);
+      }
+
+      // Thumbnail image for PDF file
+      $pdf_image         = escape($_FILES['pdf_image']['name']);
+      if (trim($pdf_image) != "") {
+        $pdf_file->set_thumbnail_image($pdf_image);
+        $pdf_image_temp    = ($_FILES['pdf_image']['tmp_name']);
+      }
+      
+      // PDF file itself
+      $pdf_filename         = escape($_FILES['pdf_filename']['name']);
+      if (trim($pdf_filename) != "") {
+        $pdf_file->set_pdf_file(trim($pdf_filename));
+        $pdf_filename_temp    = ($_FILES['pdf_filename']['tmp_name']);
+      }
+      
+      $result = update_pdf_file($pdf_file);
+      confirm($result);
+      if (trim($pdf_image) != "") {
+        move_uploaded_file($pdf_image_temp,"$pdf_file_dir_path/$pdf_image");
+      }
+      if (trim($pdf_filename) != "") {
+        move_uploaded_file($pdf_filename_temp,"$pdf_file_dir_path/$pdf_filename");
+      }
+
+      $update_status = "Successfully updated $title.";
+    }
+    
+?>
+
+<?php
+    $redirect_func = "";
+    if(isset($_POST['update_pdf_file'])) {
+      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_files.php';</script>";
+    }
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">    
@@ -115,9 +125,6 @@
           <label for="pdf_page-id">PDF Page for this file</label>
           <select name="pdf_page_id" id="">
             <?php
-              // $pdf_page_id = $pdf_file->get_pdf_page_id();
-              error_log("***** PDF PAGE ID: $pdf_page_id  ");
-
               // Get the PDF Page so we can get its parent to see what this could be linked to in case it's linked incorrectly
               $pdf_page = get_pdf_page($pdf_file->get_pdf_page_id());
               $pdf_page_id = $pdf_page->get_parent_page_id();
@@ -126,7 +133,7 @@
               echo("<option value=0>None</option>");
               if (count($pdf_pages) > 0) {
                 foreach ($pdf_pages as &$pp) {
-                  error_log("***** PP ID: $pp->get_id()  PDF PAGE ID: {$pdf_file->get_pdf_page_id()}");
+                  error_log("***** PP ID: {$pp->get_id()}  PDF PAGE ID: {$pdf_file->get_pdf_page_id()}");
                   $selected = "";
                   if ($pp->get_id() == $pdf_file->get_pdf_page_id()) {
                     $selected = "selected";

@@ -156,17 +156,33 @@ class PdfFile {
   function get_id() {
     return $this->id;
   }
+  
   function get_title() {
     return $this->title;
   }
+  function set_title($title) {
+    $this->title = $title;
+  }
+
   function get_thumbnail_image() {
     return $this->thumbnail_image;
   }
+  function set_thumbnail_image($thumbnail_image) {
+    $this->thumbnail_image = $thumbnail_image;
+  }
+
   function get_pdf_file() {
     return $this->pdf_file;
   }
+  function set_pdf_file($pdf_file) {
+    $this->pdf_file = $pdf_file;
+  }
+
   function get_pdf_page_id() {
     return $this->pdf_page_id;
+  }
+  function set_pdf_page_id($pdf_page_id) {
+    $this->pdf_page_id = $pdf_page_id;
   }
 }
 
@@ -222,9 +238,9 @@ function update_pdf_file($pdf_file) {
 
     $query = "UPDATE pdf_links set title='{$pdf_file->get_title()}', pdf_filename='{$pdf_file->get_pdf_file()}',";
     $query .= " pdf_page_id={$pdf_file->get_pdf_page_id()}, pdf_image='{$pdf_file->get_thumbnail_image()}'";
-    $query .= " WHERE id={$pdf_page->get_id()}";
+    $query .= " WHERE id={$pdf_file->get_id()}";
 
-    error_log("update_pdf_page: QUERY: $query");
+    error_log("update_pdf_file: QUERY: $query");
 
     $result = mysqli_query($connection, $query);
     error_log("update_pdf_page: returning...");
