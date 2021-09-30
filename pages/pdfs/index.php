@@ -1,4 +1,5 @@
 <html lang="en">
+<?php include "../../app_variables.php"; ?>
 
 <head>
     <title>Spoontiques, Inc. - Wholesale Giftware</title>
@@ -13,23 +14,9 @@
 
 
 <body>
-    <?php include "../../includes/logo.php"; ?>
-
-     
-<div id="pdf_lists">
-    <ul class="list-group">
-        <li class="list-group-item"><a href='documents/FullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2021 Catalog</a></li>
-        <li class="list-group-item"><a href='documents/Supplement.pdf'><img width='100' src='images/Supplement.jpg' alt='images'>New for Summer 2021</a></li>
-        <li class="list-group-item"><a href='sections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections</a></li>
-        <li class="list-group-item"><a href='licenses.php'><img width='100' src='images/Licenses2020.jpg' alt='images'>Individual Licenses</a></li>
-<!--
-       <li class="list-group-item"><a href='documents/Fall2020PPE.pdf'><img width='100' src='images/PPE.jpg' alt='images'>Personal Protection</a></li>
--->
-   </ul>    
-   
-</div>
-
-<div>
-    <?php include "../../includes/footer.php";  ?>
-</div>
+  <?php
+    // TODO: This will eventually go away.  It was created to maintain backward
+    //       compatibility with the old catalog link.
+    header("Location: $app_root_dir/pages/pdfs/catalogs.php?ppid=100") 
+  ?>
 </body>

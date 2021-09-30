@@ -1,3 +1,4 @@
+<?php include "app_variables.php"; ?>
 <?php
   require_once('includes/authorize.php');
 ?>
@@ -189,6 +190,7 @@
 
         <div class="form-group">
             <input class="btn btn-primary" type="submit" name="update_product" value="Update Product">
+            <input class="btn btn-danger" type="button" onclick='javascript:history.back(1);' value="Cancel">
         </div>
     </div>
 </form>

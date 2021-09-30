@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "app_variables.php"; ?>
 
 <html lang="en">
     

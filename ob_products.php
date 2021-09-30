@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<?php include "app_variables.php"; ?>
 <?php include "functions.php"; ?>
 <?php include "db.php"; ?>
 
@@ -12,6 +13,7 @@
 <body>
     <?php include "includes/admin_navbar.php"; ?> 
 
+    <h4 class="catalog_heading">Spoontiques Products</h4>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>

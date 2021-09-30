@@ -1,3 +1,4 @@
+<?php include "app_variables.php"; ?>
 <?php
   require_once('includes/authorize.php');
 ?>
@@ -89,10 +90,9 @@
         </div> 
 
         <div class="form-group">
-            <label for="prod_image">Image</label>
-            <input type="file"  name="prod_image" required>
+            <label for="page_image">Image</label>
+            <input type="file"  name="page_image" required>
         </div>
-
 
         <div class="form-group">
             <label for="blurb">Blurb</label>
@@ -119,6 +119,7 @@
 
         <div class="form-group">
         <input class="btn btn-primary" type="submit" name="add_product" value="Add Product">
+        <input class="btn btn-danger" type="button" onclick='javascript:history.back(1);' value="Cancel">
         </div>
     </div>
 </form>

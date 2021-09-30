@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "app_variables.php"; ?>
 <?php include "db.php"; ?>
 <!--<?php include "includes/header.php";  ?>-->
 
