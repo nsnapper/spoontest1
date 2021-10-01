@@ -13,7 +13,6 @@
     <?php include "../../includes/logo.php"; ?>
 
 <div id="pdf_lists">
-    <ul class="list-group">
     <!-- List links to individual sections that are siblings of this page. -->
     <?php
       $pdf_page_id = null;
