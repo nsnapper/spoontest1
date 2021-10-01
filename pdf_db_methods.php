@@ -109,7 +109,7 @@ function get_pdf_page($page_id) {
 function add_pdf_page($title, $description, $image, $parent_page_id, $sort_index) {
   global $connection;
 
-  $query = "INSERT INTO pdf_pages(title, description, parent_id, page_image)";
+  $query = "INSERT INTO pdf_pages(title, description, parent_id, page_image, sort_index)";
   $query .="VALUES('{$title}', '{$description}','{$parent_page_id}','{$image}', '{$sort_index}')";
 
   error_log("Adding new PDF Type: $title", 0);
