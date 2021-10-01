@@ -115,7 +115,7 @@
 
         <div class="form-group">
             <label for="sort_index">Sort index</label>
-            <input type="number" class="form-control" name="sort_index" value=1 required>
+            <input type="number" class="form-control" name="sort_index" value=<?php echo $pdf_page->get_sort_index() ?> required>
         </div> 
 
         <div class="form-group">
