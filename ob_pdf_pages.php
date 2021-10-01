@@ -32,7 +32,7 @@ function build_delete_page_form($ppid) {
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Id / Sort Index</th>
             <th>Title</th>
             <th>Parent Page</th>
             <th>Image</th>
@@ -58,7 +58,7 @@ function build_delete_page_form($ppid) {
               foreach ($pdf_pages as &$pp) {
                 $ppid = $pp->get_id();
                 echo "<tr>";
-                echo "<td>{$pp->get_id()}</td>";
+                echo "<td>{$pp->get_id()} / {$pp->get_sort_index()}</td>";
                 echo "<td>{$pp->get_title()}</td>";
 
                 if ($pp->get_parent_page_id() == 0) {

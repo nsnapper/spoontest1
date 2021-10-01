@@ -27,12 +27,14 @@
       $parent_page_id = $_GET['ppid'];
     }
     
-    if (isset($_POST['add_pdf_page'])) {
+    if (isset($_POST['add_pdf_file'])) {
       error_log("ob_add_pdf_file: Adding new PDF...", 0);
 
       $title             = escape($_POST['title']);
       $description       = escape($_POST['description']);
 
+      $sort_index        = $_POST['sort_index'];
+      
       $pdf_page_id       = $_POST['pdf_page_id'];
 
       // Thumbnail image for PDF file
@@ -45,14 +47,8 @@
       $pdf_filename_temp    = ($_FILES['pdf_filename']['tmp_name']);
       move_uploaded_file($pdf_filename_temp,"$pdf_file_dir_path/$pdf_filename");
       
-      $query = "INSERT INTO pdf_links(title, pdf_filename, pdf_image, pdf_page_id)";
-      
-      $query .="VALUES('{$title}', '{$pdf_filename}','{$pdf_image}','{$pdf_page_id}')";
-
-      error_log("Adding new PDF File: $pdf_filename, Thumbnail: $pdf_image", 0);
-      $add_product_query = mysqli_query($connection, $query);
-
-      confirm($add_product_query);
+      $result = add_pdf_file($title, $pdf_image, $pdf_filename, $pdf_page_id, $sort_index);
+      confirm($result);
       $update_status = "Successfully added $title.";
     }
     
@@ -60,10 +56,16 @@
 
 <?php
     $redirect_func = "";
-    if(isset($_POST['add_pdf_page'])) {
-      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_products.php';</script>";
+    if(isset($_POST['add_pdf_file'])) {
+      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_files.php';</script>";
     }
 
+?>
+
+<?php 
+  if ($redirect_func != "") {
+    echo($redirect_func);
+  }
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">    
@@ -80,6 +82,11 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" required>
+        </div> 
+
+        <div class="form-group">
+            <label for="sort_index">Sort index</label>
+            <input type="number" class="form-control" name="sort_index" value=1 required>
         </div> 
 
         <div class="form-group">
@@ -102,10 +109,13 @@
                 // confirm($select_categories);
                 if ($select_categories) {
                   while($row = mysqli_fetch_assoc($select_categories)){
+                      $selected = "";
                       $cat_id = $row['id'];
                       $cat_title = $row['title'];
-
-                      echo "<option value='$cat_id'>{$cat_title}</option>";
+                      if ($cat_id == $parent_page_id) {
+                        $selected = "selected";
+                      }
+                      echo "<option $selected value='$cat_id'>{$cat_title}</option>";
                   }
                 }
                 echo("<option value=0>None</option>");
@@ -115,7 +125,7 @@
 
 
         <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="add_pdf_page" value="Add PDF Page">
+        <input class="btn btn-primary" type="submit" name="add_pdf_file" value="Add PDF Page">
         <input class="btn btn-danger" type="button" onclick='javascript:history.back(1);' value="Cancel">
         </div>
     </div>

@@ -52,6 +52,11 @@
           $pdf_page->set_description(trim($description));
         }
 
+        $sort_index        = $_POST['sort_index'];
+        if ($sort_index != $pdf_page->get_sort_index()) {
+          $pdf_page->set_sort_index($sort_index);
+        }
+
         $parent_id = $_POST['parent_id'];
         $pdf_page->set_parent_page_id($parent_id);
 
@@ -77,7 +82,7 @@
 <?php
     $redirect_func = "";
     if(isset($_POST['update_pdf_page'])) {
-      $redirect_func = "<script>window.location = '<?= $app_root_dir ?>/ob_pdf_pages.php';</script>";
+      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_pages.php';</script>";
     }
 
 ?>
@@ -107,6 +112,11 @@
             <label for="description">Description</label>
              <textarea class="form-control "name="description" id="" cols="30" rows="5" required><?php echo $pdf_page->get_description()?></textarea>
         </div>
+
+        <div class="form-group">
+            <label for="sort_index">Sort index</label>
+            <input type="number" class="form-control" name="sort_index" value=1 required>
+        </div> 
 
         <div class="form-group">
             <label for="page_image">Image</label>

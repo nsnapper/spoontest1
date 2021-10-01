@@ -53,7 +53,7 @@ if ($pfid == null) {
 ?>
 
 <h4 style="display: inline-block" class="catalog_heading">PDF Files</h4>
-<a style="display: inline-block" class="btn btn-primary" href="ob_add_pdf_file.php">Upload PDF File</a>
+<a style="display: inline-block" class="btn btn-primary" href="ob_add_pdf_file.php?ppid=<?= $ppid ?>">Upload PDF File</a>
 <select style="margin-left: 10px" name="parent_page" id="parent_page" onchange="window.location = 'ob_pdf_files.php?ppid='+this.value;">
 <?php
   $parent_title = "Self";
@@ -89,7 +89,7 @@ if (count($pdf_pages) > 0) {
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Id / Sort Index</th>
             <th>Title</th>
             <th>Thumbnail</th>
             <th>PDF Filename</th>
@@ -106,7 +106,7 @@ if (count($pdf_pages) > 0) {
               foreach ($pdf_links as &$pl) {
                 $pfid = $pl->get_id();
                 echo "<tr>";
-                echo "<td>{$pl->get_id()}</td>";
+                echo "<td>{$pl->get_id()} / {$pl->get_sort_index()}</td>";
                 echo "<td>{$pl->get_title()}</td>";
                 echo "<td><img width='100' src='$pdf_file_dir/{$pl->get_thumbnail_image()}' alt='file'></td>";                
                 echo "<td>{$pl->get_pdf_file()}</td>";

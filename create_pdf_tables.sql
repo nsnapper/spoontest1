@@ -5,6 +5,7 @@ CREATE TABLE `pdf_pages` (
   `description` text NOT NULL,
   `parent_id` int(5) NOT NULL,
   `page_image` varchar(256) NOT NULL,
+  `sort_index` int(5) DEFAULT 0
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
 
@@ -15,5 +16,6 @@ CREATE TABLE `pdf_links` (
   `pdf_filename` varchar(256) NOT NULL,
   `pdf_image` varchar(256) NOT NULL,
   `pdf_page_id` int(5) NOT NULL,
+  `sort_index` int(5) DEFAULT 0
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;

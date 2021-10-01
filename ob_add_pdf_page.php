@@ -34,12 +34,14 @@
 
         $parent_id = $_POST['parent_id'];
 
+        $sort_index        = $_POST['sort_index'];
+
         $page_image        = escape($_FILES['page_image']['name']);
         $page_image_temp   = ($_FILES['page_image']['tmp_name']);
         move_uploaded_file($page_image_temp,"$pdf_file_dir_path/$page_image");
         
         error_log("Adding new PDF Type: $title, parent_id: $parent_id", 0);
-        $result = add_pdf_page($title, $description, $page_image, $parent_id);
+        $result = add_pdf_page($title, $description, $page_image, $parent_id, $sort_index);
         confirm($result);
 
         $update_status = "Successfully added $title.";
@@ -50,9 +52,14 @@
 <?php
     $redirect_func = "";
     if(isset($_POST['add_pdf_page'])) {
-      $redirect_func = "<script>window.location = '<?= $app_root_dir ?>/ob_products.php';</script>";
+      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_pages.php';</script>";
     }
+?>
 
+<?php
+    if(isset($_POST['add_pdf_page'])) {
+      echo($redirect_func);
+    }
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">    
@@ -69,6 +76,11 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" required>
+        </div> 
+
+        <div class="form-group">
+            <label for="sort_index">Sort index</label>
+            <input type="number" class="form-control" name="sort_index" value=1 required>
         </div> 
 
         <div class="form-group">

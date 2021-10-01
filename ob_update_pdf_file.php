@@ -48,6 +48,11 @@
         $pdf_file->set_title(trim($title));
       }
 
+      $sort_index        = $_POST['sort_index'];
+      if ($sort_index != $pdf_file->get_sort_index()) {
+        $pdf_file->set_sort_index($sort_index);
+      }
+
       $pdf_page_id       = $_POST['pdf_page_id'];
       if (trim($pdf_page_id) != trim($pdf_file->get_pdf_page_id())) {
         $pdf_file->set_pdf_page_id($pdf_page_id);
@@ -77,6 +82,15 @@
       }
 
       $update_status = "Successfully updated $title.";
+
+      // Get the parent page id for the redirect.  If the page this pfd lives on
+      // is a root page set ppid and pfid to this page id
+      $current_pdf_page = get_pdf_page($pdf_file->get_pdf_page_id());
+      if ($current_pdf_page->get_parent_page_id() == 0) {
+        $ppid = $pdf_file->get_pdf_page_id();
+      } else {
+        $ppid = $current_pdf_page->get_parent_page_id();
+      }
     }
     
 ?>
@@ -84,7 +98,7 @@
 <?php
     $redirect_func = "";
     if(isset($_POST['update_pdf_file'])) {
-      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_files.php';</script>";
+      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_files.php?ppid={$ppid}&pfid={$current_pdf_page->get_id()}';</script>";
     }
 ?>
 
@@ -107,6 +121,11 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" value="<?= $pdf_file->get_title() ?>" required>
+        </div> 
+
+        <div class="form-group">
+            <label for="sort_index">Sort index</label>
+            <input type="number" class="form-control" name="sort_index" value="<?= $pdf_file->get_sort_index() ?>" required>
         </div> 
 
         <div class="form-group">
