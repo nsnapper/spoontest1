@@ -1,3 +1,6 @@
+<?php
+  require_once('includes/authorize.php');
+?>
 <!DOCTYPE html>
 
 <?php include "app_variables.php"; ?>

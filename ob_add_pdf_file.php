@@ -22,9 +22,14 @@
     $update_status = "";
     error_log("ob_add_pdf_file");
     // TODO: This is a future to allow for nested pages.  0 == root page
-    $parent_page_id = 0;
+    $ppid = 0;
+    $pfid = 0;
     if (isset($_GET['ppid'])) {
-      $parent_page_id = $_GET['ppid'];
+      $ppid = $_GET['ppid'];
+    }
+
+    if (isset($_GET['pfid'])) {
+      $pfid = $_GET['pfid'];
     }
     
     if (isset($_POST['add_pdf_file'])) {
@@ -57,7 +62,7 @@
 <?php
     $redirect_func = "";
     if(isset($_POST['add_pdf_file'])) {
-      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_files.php';</script>";
+      $redirect_func = "<script>window.location = '{$app_root_dir}/ob_pdf_files.php?ppid={$ppid}&pfid={$pfid}';</script>";
     }
 
 ?>
@@ -112,7 +117,7 @@
                       $selected = "";
                       $cat_id = $row['id'];
                       $cat_title = $row['title'];
-                      if ($cat_id == $parent_page_id) {
+                      if ($cat_id == $pfid) {
                         $selected = "selected";
                       }
                       echo "<option $selected value='$cat_id'>{$cat_title}</option>";

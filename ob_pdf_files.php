@@ -1,3 +1,7 @@
+<?php
+  require_once('includes/authorize.php');
+?>
+
 <!DOCTYPE html>
 
 <?php include "app_variables.php"; ?>
@@ -15,12 +19,13 @@
     <?php include "includes/admin_navbar.php"; ?> 
 
 <?php
-function build_delete_file_form($pfid) {
+function build_delete_file_form($ppid, $pfid) {
   error_log("building delete...", 0);
   $dpf = "
     <form action='ob_delete_pdf_file.php' method='post'>
-      <input type='hidden' name='pfid' value='{$pfid}'>
-      <input class='btn btn-danger' type='submit' name='delete' value='Delete Page' onClick=\"javascript: return confirm('Are you sure you want to delete this file?'); \">
+    <input type='hidden' name='ppid' value='{$ppid}'>
+    <input type='hidden' name='pfid' value='{$pfid}'>
+    <input class='btn btn-danger' type='submit' name='delete' value='Delete Page' onClick=\"javascript: return confirm('Are you sure you want to delete this file?'); \">
     </form>    
   ";
   return $dpf;
@@ -53,7 +58,7 @@ if ($pfid == null) {
 ?>
 
 <h4 style="display: inline-block" class="catalog_heading">PDF Files</h4>
-<a style="display: inline-block" class="btn btn-primary" href="ob_add_pdf_file.php?ppid=<?= $ppid ?>">Upload PDF File</a>
+<a style="display: inline-block" class="btn btn-primary" href="ob_add_pdf_file.php?ppid=<?= $ppid ?>&pfid=<?= $pfid ?>">Upload PDF File</a>
 <select style="margin-left: 10px" name="parent_page" id="parent_page" onchange="window.location = 'ob_pdf_files.php?ppid='+this.value;">
 <?php
   $parent_title = "Self";
@@ -111,7 +116,7 @@ if (count($pdf_pages) > 0) {
                 echo "<td><img width='100' src='$pdf_file_dir/{$pl->get_thumbnail_image()}' alt='file'></td>";                
                 echo "<td>{$pl->get_pdf_file()}</td>";
                 echo "<td><a class='btn btn-info' href='ob_update_pdf_file.php?pfid={$pl->get_id()}'>Edit</a></td>"; 
-                $del_btn = build_delete_file_form($pfid);
+                $del_btn = build_delete_file_form($ppid, $pfid);
                 // echo $del_btn;
                 echo "<td>$del_btn</td>"; 
                 echo "</tr>";

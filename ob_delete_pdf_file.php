@@ -1,3 +1,6 @@
+<?php
+  require_once('includes/authorize.php');
+?>
 <!DOCTYPE html>
 
 <?php include "app_variables.php"; ?>
@@ -17,9 +20,13 @@
 error_log("ob_delete_pdf_file...", 0);
 if (isset($_POST['delete'])) {
   $pfid = $_POST['pfid'];
+  $ppid = $_POST['ppid'];
+
+  $pdf_file = get_pdf_file($pfid);
+
   $result = delete_pdf_file($pfid);
   confirm($result);
-  header("Location: ob_pdf_files.php");
+  header("Location: ob_pdf_files.php?ppid={$ppid}&pfid={$pdf_file->get_pdf_page_id()}");
 }
 ?>
 
