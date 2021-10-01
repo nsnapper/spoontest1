@@ -31,9 +31,13 @@
       // Fetch list of PDFs for this catalog type.
       $pdf_pages = get_pdf_files_for_page($pdf_page_id);
       if (count($pdf_pages) > 0) {
+        echo("<h5 class='catalog_subheading'>Catalog Files</h5>");
+        echo("<ul class='list-group'>");
+
         foreach ($pdf_pages as &$pp) {
           echo("<li class='list-group-item'><a href='$pdf_file_dir/{$pp->get_pdf_file()}'><img width='100' src='$pdf_file_dir/{$pp->get_thumbnail_image()}' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
         }
+        echo("</ul>");
       } else {
         echo("<li class='list-group-item'>No entries found for this type of catalog.</li>");
       }
@@ -41,10 +45,13 @@
       $pdf_parent_page = get_pdf_page($pdf_page_id);
       $pdf_pages = get_pdf_pages_for_parent($pdf_page_id);
       if (count($pdf_pages) > 0) {
+        echo("<h5 class='catalog_subheading'>Catalog Pages</h5>");
+        echo("<ul class='list-group'>");
         foreach ($pdf_pages as &$pp) {
           echo("<!-- Page Image: {$pp->get_image()} -->");
           echo("<li class='list-group-item'><a href='catalogs.php?ppid={$pp->get_id()}'><img width='100' src='" . "$pdf_file_dir/{$pp->get_image()}" . "' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
         }
+        echo("</ul>");
       } else {
         // Root pages are expected to have sibling pages.  This could change...
         if ($pdf_parent_page->get_parent_page_id() == 0) {
@@ -52,8 +59,6 @@
         }
       }
     ?>
-
-</ul> 
 </div>
 
 <div>
