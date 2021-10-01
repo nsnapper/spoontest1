@@ -31,7 +31,6 @@
       // Fetch list of PDFs for this catalog type.
       $pdf_pages = get_pdf_files_for_page($pdf_page_id);
       if (count($pdf_pages) > 0) {
-        echo("<h5 class='catalog_subheading'>Catalog Files</h5>");
         echo("<ul class='list-group'>");
 
         foreach ($pdf_pages as &$pp) {
@@ -45,7 +44,6 @@
       $pdf_parent_page = get_pdf_page($pdf_page_id);
       $pdf_pages = get_pdf_pages_for_parent($pdf_page_id);
       if (count($pdf_pages) > 0) {
-        echo("<h5 class='catalog_subheading'>Catalog Pages</h5>");
         echo("<ul class='list-group'>");
         foreach ($pdf_pages as &$pp) {
           echo("<!-- Page Image: {$pp->get_image()} -->");
