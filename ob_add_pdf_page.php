@@ -90,7 +90,7 @@
 
         <div class="form-group">
             <label for="page_image">Image</label>
-            <input type="file"  name="page_image" required>
+            <input type="file" name="page_image" accept="image/png, image/jpeg, image/jpg" required>
         </div>
 
         <div class="form-group">

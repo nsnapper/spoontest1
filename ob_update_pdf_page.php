@@ -121,7 +121,7 @@
         <div class="form-group">
             <label for="page_image">Image</label>
             <img src="<?= $pdf_file_dir ?>/<?= $pdf_page->get_image() ?>" width="100" alt="">
-            <input type="file"  name="page_image">
+            <input type="file"  name="page_image" accept="image/png, image/jpeg, image/jpg">
         </div>
 
         <div class="form-group">

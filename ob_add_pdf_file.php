@@ -91,12 +91,12 @@
 
         <div class="form-group">
             <label for="pdf_image">Image</label>
-            <input type="file"  name="pdf_image" required>
+            <input type="file"  name="pdf_image" accept="image/png, image/jpeg, image/jpg" required>
         </div>
 
         <div class="form-group">
             <label for="pdf_filename">PDF File</label>
-            <input type="file"  name="pdf_filename" required>
+            <input type="file"  name="pdf_filename" accept=".pdf" required>
         </div>
 
         <div class="form-group">

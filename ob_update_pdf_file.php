@@ -131,13 +131,13 @@
         <div class="form-group">
             <label for="pdf_image">Image</label>
             <img src="<?= $pdf_file_dir ?>/<?= $pdf_file->get_thumbnail_image() ?>" width="100" alt="">
-            <input type="file"  name="pdf_image" value="<?= $pdf_file->get_thumbnail_image() ?>">
+            <input type="file"  name="pdf_image" accept="image/png, image/jpeg, image/jpg" value="<?= $pdf_file->get_thumbnail_image() ?>">
         </div>
 
         <div class="form-group">
             <label for="pdf_filename">PDF File</label>
             <div style="display: inline-block">(Current File: <?= $pdf_file->get_pdf_file() ?>)</div>
-            <input type="file" name="pdf_filename">
+            <input type="file" name="pdf_filename" accept=".pdf">
         </div>
 
         <div class="form-group">
