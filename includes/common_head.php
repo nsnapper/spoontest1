@@ -14,6 +14,6 @@
 <script src="<?= $app_root_dir ?>/js/bootstrap.min.js"></script>    
 
 <link href="jquery-ui/jquery-ui.css" rel="stylesheet">	
-<link rel="stylesheet" type="text/css" href="<?= $app_root_dir ?>/css/Spoontiques.css">
+<link rel="stylesheet" type="text/css" href="<?= $app_root_dir ?>/css/Spoontiques.css?23456">
 <!--    bootstrap 4.0.0-alpha.2-->
 <link rel="stylesheet" type="text/css" href="<?= $app_root_dir ?>/css/bootstrap.min.css">

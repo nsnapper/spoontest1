@@ -3,7 +3,7 @@
 
 <head>
     <title>Spoontiques, Inc. - Wholesale Giftware</title>
-    <link rel="stylesheet" type="text/css" href="../../css/Spoontiques.css">
+    <link rel="stylesheet" type="text/css" href="../../css/Spoontiques.css?23456">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +17,7 @@
   <?php
     // TODO: This will eventually go away.  It was created to maintain backward
     //       compatibility with the old catalog link.
-    header("Location: $app_root_dir/pages/pdfs/catalogs.php?ppid=105") 
+    // XXX: LOCAL IS 105 but this is the id for the live site since we don't need redirects local
+    header("Location: $app_root_dir/pages/pdfs/catalogs.php?ppid=103") 
   ?>
 </body>

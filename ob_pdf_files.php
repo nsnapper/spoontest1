@@ -57,8 +57,7 @@ if ($pfid == null) {
 
 ?>
 
-<h4 style="display: inline-block" class="catalog_heading">PDF Files</h4>
-<a style="display: inline-block" class="btn btn-primary" href="ob_add_pdf_file.php?ppid=<?= $ppid ?>&pfid=<?= $pfid ?>">Upload PDF File</a>
+<h4 style="display: inline-block" class="catalog_heading">Showing PDF Files for: </h4>
 <select style="margin-left: 10px" name="parent_page" id="parent_page" onchange="window.location = 'ob_pdf_files.php?ppid='+this.value;">
 <?php
   $parent_title = "Self";
@@ -67,6 +66,9 @@ if ($pfid == null) {
     if ($ppp->get_id() == $ppid) {
       $selected = "selected";
       $parent_title = $ppp->get_title();
+      if ($ppp->get_parent_page_id() == 0) {
+        $parent_title .= " (top catalog page)";
+      }
     }
     echo "<option $selected value='{$ppp->get_id()}'>{$ppp->get_title()}</option>";
   }
@@ -90,6 +92,10 @@ if (count($pdf_pages) > 0) {
 }
 ?>
 </select>
+<br />
+<div style="margin-left: 10px">
+<a style="display: inline-block" class="btn btn-primary" href="ob_add_pdf_file.php?ppid=<?= $ppid ?>&pfid=<?= $pfid ?>">Upload New PDF File</a>
+</div>
 <!-- </div> -->
 <table class="table table-bordered table-hover">
     <thead>

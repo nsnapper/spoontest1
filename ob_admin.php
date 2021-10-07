@@ -18,7 +18,7 @@
 
      
 <div id="pdf_lists">
-    <h4 class="catalog_heading">Spoontiques Product Catalogs - per region</h4>
+    <h4 class="catalog_heading">Spoontiques Documents</h4>
     <ul class="list-group">
         <?php
           $pdf_pages = get_pdf_pages_for_parent(0);
