@@ -75,10 +75,14 @@
       $result = update_pdf_file($pdf_file);
       confirm($result);
       if (trim($pdf_image) != "") {
-        move_uploaded_file($pdf_image_temp,"$pdf_file_dir_path/$pdf_image");
+        if (!move_uploaded_file($pdf_image_temp,"$storage_file_dir_path/$storage_web_app_root/$pdf_file_dir_path/$pdf_image")) {
+          die("Upload failed because of error \"{$_FILES['pdf_image']['error']}\"");
+        }
       }
       if (trim($pdf_filename) != "") {
-        move_uploaded_file($pdf_filename_temp,"$pdf_file_dir_path/$pdf_filename");
+        if (!move_uploaded_file($pdf_filename_temp,"$storage_file_dir_path/$storage_web_app_root/$pdf_file_dir_path/$pdf_filename")) {
+          die("Upload failed because of error #" . $_FILES["pdf_filename"]["error"]);
+        }
       }
 
       $update_status = "Successfully updated $title.";
@@ -130,7 +134,7 @@
 
         <div class="form-group">
             <label for="pdf_image">Image</label>
-            <img src="<?= $pdf_file_dir ?>/<?= $pdf_file->get_thumbnail_image() ?>" width="100" alt="">
+            <img src="<?= "$app_root_dir/$storage_web_app_root/$pdf_file_dir_path" ?>/<?= $pdf_file->get_thumbnail_image() ?>" width="100" alt="">
             <input type="file"  name="pdf_image" accept="image/png, image/jpeg, image/jpg" value="<?= $pdf_file->get_thumbnail_image() ?>">
         </div>
 

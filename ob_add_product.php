@@ -27,7 +27,7 @@
         $prod_image_temp   = ($_FILES['prod_image']['tmp_name']);
         $blurb             = escape($_POST['blurb']);
         $link_to           = escape($_POST['link_to']);
-        move_uploaded_file($prod_image_temp,"cms_images/$prod_image");
+        move_uploaded_file($prod_image_temp,"$cms_images_upload/$prod_image");
         
         $query = "INSERT INTO websitelayout(ProdPageTableId, ProdPageSortOrder, ProdPageTitle, ProdPageImage, ProdPageBlurb, ProdPageLinkTo)";
         

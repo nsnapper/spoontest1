@@ -20,7 +20,7 @@
 
 <?php
 function build_delete_page_form($ppid) {
-  error_log("building delete...", 0);
+  // error_log("building delete...", 0);
   $dpf = "
     <form action='ob_delete_pdf_page.php' method='post'>
       <input type='hidden' name='ppid' value='{$ppid}'>
@@ -72,7 +72,7 @@ function build_delete_page_form($ppid) {
                   $p = get_parent($pdf_pages, $pp->get_parent_page_id());
                   echo "<td>{$p->get_title()} ({$p->get_id()})</td>";
                 }
-                echo "<td><img width='100' src='$pdf_file_dir/{$pp->get_image()}' alt='images'></td>";
+                echo "<td><img width='100' src='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_image()}' alt='images'></td>";
                 echo "<td><a class='btn btn-info' href='ob_update_pdf_page.php?pdf_page_id={$pp->get_id()}'>Edit</a></td>"; 
                 $del_btn = build_delete_page_form($ppid);
                 // echo $del_btn;

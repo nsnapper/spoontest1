@@ -72,7 +72,7 @@
         confirm($result);
 
         if ($page_image != "") {
-          move_uploaded_file($page_image_temp,"$pdf_file_dir_path/$page_image");
+          move_uploaded_file($page_image_temp,"$storage_file_dir_path/$storage_web_app_root/$pdf_file_dir_path/$page_image");
         }
         $update_status = "Successfully added $title.";
     }
@@ -120,7 +120,7 @@
 
         <div class="form-group">
             <label for="page_image">Image</label>
-            <img src="<?= $pdf_file_dir ?>/<?= $pdf_page->get_image() ?>" width="100" alt="">
+            <img src="<?= "$app_root_dir/$storage_web_app_root/$pdf_file_dir_path" ?>/<?= $pdf_page->get_image() ?>" width="100" alt="">
             <input type="file"  name="page_image" accept="image/png, image/jpeg, image/jpg">
         </div>
 

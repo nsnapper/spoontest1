@@ -33,7 +33,7 @@
         echo("<ul class='list-group'>");
 
         foreach ($pdf_pages as &$pp) {
-          echo("<li class='list-group-item'><a href='$pdf_file_dir/{$pp->get_pdf_file()}'><img width='100' src='$pdf_file_dir/{$pp->get_thumbnail_image()}' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
+          echo("<li class='list-group-item'><a href='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_pdf_file()}'><img width='100' src='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_thumbnail_image()}' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
         }
         echo("</ul>");
       } else {
@@ -46,7 +46,7 @@
         echo("<ul class='list-group'>");
         foreach ($pdf_pages as &$pp) {
           echo("<!-- Page Image: {$pp->get_image()} -->");
-          echo("<li class='list-group-item'><a href='catalogs.php?ppid={$pp->get_id()}'><img width='100' src='" . "$pdf_file_dir/{$pp->get_image()}" . "' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
+          echo("<li class='list-group-item'><a href='catalogs.php?ppid={$pp->get_id()}'><img width='100' src='" . "$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_image()}" . "' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
         }
         echo("</ul>");
       } else {

@@ -45,12 +45,12 @@
       // Thumbnail image for PDF file
       $pdf_image         = escape($_FILES['pdf_image']['name']);
       $pdf_image_temp    = ($_FILES['pdf_image']['tmp_name']);
-      move_uploaded_file($pdf_image_temp,"$pdf_file_dir_path/$pdf_image");
+      move_uploaded_file($pdf_image_temp,"$storage_file_dir_path/$storage_web_app_root/$pdf_file_dir_path/$pdf_image");
       
       // PDF file itself
       $pdf_filename         = escape($_FILES['pdf_filename']['name']);
       $pdf_filename_temp    = ($_FILES['pdf_filename']['tmp_name']);
-      move_uploaded_file($pdf_filename_temp,"$pdf_file_dir_path/$pdf_filename");
+      move_uploaded_file($pdf_filename_temp,"$storage_file_dir_path/$storage_web_app_root/$pdf_file_dir_path/$pdf_filename");
       
       $result = add_pdf_file($title, $pdf_image, $pdf_filename, $pdf_page_id, $sort_index);
       confirm($result);

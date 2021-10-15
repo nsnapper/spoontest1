@@ -20,7 +20,7 @@
 
 <?php
 function build_delete_file_form($ppid, $pfid) {
-  error_log("building delete...", 0);
+//  error_log("building delete...", 0);
   $dpf = "
     <form action='ob_delete_pdf_file.php' method='post'>
     <input type='hidden' name='ppid' value='{$ppid}'>
@@ -40,6 +40,7 @@ if (isset($_GET['pfid'])) {
 
 $pdf_parent_pages = get_pdf_pages_for_parent(0);
 // echo("<script>alert('Found " . count($pdf_parent_pages) . " parent pages...');</script>");
+//echo("<script>alert('PDF ROOT: $storage_web_app_root');</script>");
 $ppid = 100;
 if (isset($_GET['ppid'])) {
   $ppid = $_GET['ppid'];
@@ -119,7 +120,7 @@ if (count($pdf_pages) > 0) {
                 echo "<tr>";
                 echo "<td>{$pl->get_id()} / {$pl->get_sort_index()}</td>";
                 echo "<td>{$pl->get_title()}</td>";
-                echo "<td><img width='100' src='$pdf_file_dir/{$pl->get_thumbnail_image()}' alt='file'></td>";                
+                echo "<td><img width='100' src='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pl->get_thumbnail_image()}' alt='file'></td>";                
                 echo "<td>{$pl->get_pdf_file()}</td>";
                 echo "<td><a class='btn btn-info' href='ob_update_pdf_file.php?pfid={$pl->get_id()}'>Edit</a></td>"; 
                 $del_btn = build_delete_file_form($ppid, $pfid);

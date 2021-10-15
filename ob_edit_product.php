@@ -65,13 +65,15 @@
         $prod_image_temp   = ($_FILES['prod_image']['tmp_name']);
         $blurb             = escape($_POST['blurb']);
         $link_to           = escape($_POST['link_to']);
-        if (!is_writeable('cms_images/' . $_FILES['image']['name'])) {
-          error_log("Can not write the file " . $_FILES['image']['name'] . "  to cms_images...\n");
-          die("Can not write the file " . $_FILES['image']['name'] . "  to cms_images...\n");
-        }
+        // if (!is_writeable('$cms_images_upload/' . $_FILES['image']['name'])) {
+        // if (!is_writeable('$cms_images_upload')) {
+        //     error_log("Can not write the file " . $_FILES['image']['name'] . "  to $cms_images_upload...\n");
+        //   die("Can not write the file " . $_FILES['image']['name'] . "  to $cms_images_upload...\n");
+        // }
         // Only update the product image if one was selected for update.
         if ($prod_image != "") {
-          $moved = move_uploaded_file($prod_image_temp,"cms_images/$prod_image");
+          error_log("Uploading $prod_image to $cms_images_upload...", 0);
+          $moved = move_uploaded_file($prod_image_temp,"$cms_images_upload/$prod_image");
           
           if( $moved ) {
             $update_status = "Successfully uploaded image '$prod_image'.  <br />";
@@ -156,7 +158,8 @@
 
         <div class="form-group">
           <label for="prod_image">Image</label>
-            <img src="cms_images/<?php echo $prod_image; ?>" width="100" alt="">
+            <div style="display: inline-block">(Current File: <?php echo $prod_image; ?>)</div>
+            <img src="$cms_images/<?php echo $prod_image; ?>" width="100" alt="">
             <input type="file" name="prod_image">
         </div>
 
