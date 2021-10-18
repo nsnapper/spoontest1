@@ -1,6 +1,3 @@
-<?php include "app_variables.php"; ?>
-<?php include "functions.php"; ?>
-
 <?php
 
 const PAGE_ID = 'id';
@@ -231,6 +228,9 @@ class PdfFile {
 function get_pdf_files_for_page($pdf_page_id, $sort_dir='asc', $sort_by=null) {
   global $connection;
   
+  if ($sort_by == null) {
+    $sort_by = SORT_INDEX;
+  }
   $query = "SELECT * FROM pdf_links WHERE pdf_page_id=$pdf_page_id ORDER BY $sort_by $sort_dir";
   logger(DEBUG_LEVEL, "get_pdf_files_for_page: QUERY: $query");
   $pdf_file_array = array();
@@ -299,4 +299,13 @@ function delete_pdf_file($pdf_file_id) {
   $result = mysqli_query($connection, $query);
   return $result;
 }
+
+function logger($level, $log_message) {
+  global $log_level;
+  
+  if ($level >= $log_level) {
+    error_log("SpoonWebLog: $log_message", 0);
+  }
+}
+
 ?>
