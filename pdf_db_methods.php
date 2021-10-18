@@ -1,3 +1,6 @@
+<?php include "app_variables.php"; ?>
+<?php include "functions.php"; ?>
+
 <?php
 
 const PAGE_ID = 'id';
