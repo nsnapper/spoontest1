@@ -58,4 +58,11 @@ $cms_images = "$app_root_dir/$storage_web_app_root/cms_images";
 // cms_images folder in external storage.
 $cms_images_upload = "$storage_file_dir_path/$storage_web_app_root/cms_images";
 
+const DEBUG_LEVEL = 0;
+const INFO_LEVEL = 1;
+const WARN_LEVEL = 2;
+const ERROR_LEVEL = 3;
+
+$log_level = INFO_LEVEL;
+
 ?>

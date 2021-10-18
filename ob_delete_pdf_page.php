@@ -17,7 +17,7 @@
 <body>
 
 <?php
-error_log("ob_delete_pdf_page...", 0);
+logger(DEBUG_LEVEL, "ob_delete_pdf_page...");
 if (isset($_POST['delete'])) {
   $ppid = $_POST['ppid'];
   $result = delete_pdf_page($ppid);

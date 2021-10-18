@@ -39,7 +39,7 @@
       die("INVALID PDF page id");
     }
 
-    error_log("***** PDF PAGE TITLE: {$pdf_page->get_title()} *****", 0);
+    logger(DEBUG_LEVEL, "***** PDF PAGE TITLE: {$pdf_page->get_title()} *****");
 
     if(isset($_POST['update_pdf_page'])){
         $title             = escape($_POST['title']);
@@ -66,7 +66,7 @@
           $page_image_temp   = ($_FILES['page_image']['tmp_name']);
         }
         
-        error_log("UPDATING PDF ID: { Type: $title, parent_id: $parent_id", 0);
+        logger(DEBUG_LEVEL, "UPDATING PDF ID: { Type: $title, parent_id: $parent_id");
         $result = update_pdf_page($pdf_page);
         // add_pdf_page($title, $description, $page_image, $parent_id);
         confirm($result);

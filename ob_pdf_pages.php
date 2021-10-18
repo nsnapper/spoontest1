@@ -20,7 +20,6 @@
 
 <?php
 function build_delete_page_form($ppid) {
-  // error_log("building delete...", 0);
   $dpf = "
     <form action='ob_delete_pdf_page.php' method='post'>
       <input type='hidden' name='ppid' value='{$ppid}'>
@@ -34,12 +33,83 @@ function build_delete_page_form($ppid) {
 <h4 style="display: inline-block" class="catalog_heading">PDF Pages</h4>
 <a style="display: inline-block" class="btn btn-primary" href="ob_add_pdf_page.php">Add PDF Page</a>
 <table class="table table-bordered table-hover">
+<?php
+  $sort_by = TITLE;
+  if (isset($_GET['sort_by']) && $_GET['sort_by'] != "") {
+    $sort_by = $_GET['sort_by'];
+  }
+  $sort_dir = 'asc';
+  if (isset($_GET['sort_dir']) && $_GET['sort_dir'] != "") {
+    $sort_dir = $_GET['sort_dir'];
+  }
+
+  // Get the PDF files for the specified page.
+  $pdf_pages = get_all_pdf_pages($sort_dir, $sort_by);
+
+  if ($sort_dir == 'asc') {
+    $sort_dir = 'desc';
+  } else {
+    $sort_dir = 'asc';
+  }
+
+  function build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title) {
+    $sortArrow = "";
+    if ($add_dir_caret) {
+      if ($sort == 'asc') {
+        $sortArrow = " v";
+      } else {
+        $sortArrow = " ^";
+      }
+    }
+    return "<a href=ob_pdf_pages.php?sort_by=$col_name&sort_dir=$sort>$col_title$sortArrow</a>";
+  }
+  function build_column_header($col_name, $col_title) {
+    global $sort_dir, $sort_by;
+    // $sort_by = $col_name;
+    $col_hdr = $col_title;
+
+    $add_dir_caret = false;
+    if ($sort_by == $col_name) {
+      $sort = $sort_dir;
+      $add_dir_caret = true;
+    } else {
+      $sort = 'asc';
+    }
+    logger(DEBUG_LEVEL, "*** build_column_header: SortBy: $sort_by,  ColName: $col_name, Sort Dir: $sort");
+    switch ($col_name) {
+      case PAGE_ID:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case PAGE_TITLE:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case PAGE_THUMBNAIL_IMAGE:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case PAGE_PARENT_ID:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case PAGE_SORT_INDEX:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      default:
+        $sort_by = PAGE_ID;
+    }
+    return $col_hdr;
+  }
+?>
+
     <thead>
         <tr>
-            <th>Id / Sort Index</th>
-            <th>Title</th>
-            <th>Parent Page</th>
-            <th>Image</th>
+            <th><?= build_column_header(PAGE_SORT_INDEX, "Sort Index") ?></th>
+            <th><?= build_column_header(PAGE_TITLE, "Title") ?></th>
+            <th><?= build_column_header(PAGE_PARENT_ID, "Parent Page") ?></th>
+            <th><?= build_column_header(PAGE_THUMBNAIL_IMAGE, "Image") ?></th>
             <th>Edit</th>
             <th>Delete</th>
 
@@ -56,13 +126,11 @@ function build_delete_page_form($ppid) {
             }
             return null;
           }
-            $pdf_pages = get_all_pdf_pages();
-
             if (count($pdf_pages) > 0) {
               foreach ($pdf_pages as &$pp) {
                 $ppid = $pp->get_id();
                 echo "<tr>";
-                echo "<td>{$pp->get_id()} / {$pp->get_sort_index()}</td>";
+                echo "<td>{$pp->get_sort_index()}</td>";
                 echo "<td>{$pp->get_title()}</td>";
 
                 if ($pp->get_parent_page_id() == 0) {

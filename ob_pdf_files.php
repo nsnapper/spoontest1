@@ -20,7 +20,6 @@
 
 <?php
 function build_delete_file_form($ppid, $pfid) {
-//  error_log("building delete...", 0);
   $dpf = "
     <form action='ob_delete_pdf_file.php' method='post'>
     <input type='hidden' name='ppid' value='{$ppid}'>
@@ -52,7 +51,7 @@ if (isset($_GET['ppid'])) {
 $pdf_pages = get_pdf_pages_for_parent($ppid);
 if ($pfid == null) {
   $pfid = $pdf_pages[0]->get_id();
-  error_log("***** SET DEFAULT VALUE == $pfid", 0);
+  logger(DEBUG_LEVEL, "***** SET DEFAULT VALUE == $pfid");
 }
 // echo("<script>alert('Getting pdf pages for parent " . $ppid . "  pfid == $pfid...');</script>");
 
@@ -99,12 +98,86 @@ if (count($pdf_pages) > 0) {
 </div>
 <!-- </div> -->
 <table class="table table-bordered table-hover">
+<?php
+  $sort_by = TITLE;
+  if (isset($_GET['sort_by']) && $_GET['sort_by'] != "") {
+    $sort_by = $_GET['sort_by'];
+  }
+  $sort_dir = 'asc';
+  if (isset($_GET['sort_dir']) && $_GET['sort_dir'] != "") {
+    $sort_dir = $_GET['sort_dir'];
+  }
+
+  // Get the PDF files for the specified page.
+  $pdf_links = get_pdf_files_for_page($pfid, $sort_dir, $sort_by);
+
+  if ($sort_dir == 'asc') {
+    $sort_dir = 'desc';
+  } else {
+    $sort_dir = 'asc';
+  }
+
+  function build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title) {
+    $sortArrow = "";
+    if ($add_dir_caret) {
+      if ($sort == 'asc') {
+        $sortArrow = " v";
+      } else {
+        $sortArrow = " ^";
+      }
+    }
+    return "<a href=ob_pdf_files.php?sort_by=$col_name&sort_dir=$sort>$col_title$sortArrow</a>";
+  }
+  function build_column_header($col_name, $col_title) {
+    global $sort_dir, $sort_by;
+    // $sort_by = $col_name;
+    $col_hdr = $col_title;
+    $add_dir_caret = false;
+    if ($sort_by == $col_name) {
+      $sort = $sort_dir;
+      $add_dir_caret = true;
+    } else {
+      $sort = 'asc';
+    }
+    logger(DEBUG_LEVEL, "*** build_column_header: SortBy: $sort_by,  ColName: $col_name, Sort Dir: $sort");
+    switch ($col_name) {
+      case ID:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case TITLE:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case THUMBNAIL_IMAGE:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case PDF_FILE:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case PDF_PAGE_ID:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      case SORT_INDEX:
+        $col_hdr = build_col_hdr_link($add_dir_caret, $sort, $col_name, $col_title);
+        break;
+
+      default:
+        $sort_by = ID;
+    }
+    return $col_hdr;
+  }
+?>
+  
     <thead>
         <tr>
-            <th>Id / Sort Index</th>
-            <th>Title</th>
-            <th>Thumbnail</th>
-            <th>PDF Filename</th>
+            <th><?= build_column_header(SORT_INDEX, "Sort Index") ?></th>
+            <th><?= build_column_header(TITLE, "Title") ?></th>
+            <th><?= build_column_header(THUMBNAIL_IMAGE, "Thumbnail") ?></th>
+            <th><?= build_column_header(PDF_FILE, "PDF Filename") ?></th>
             <th>Edit</th>
             <th>Delete</th>
 
@@ -113,14 +186,19 @@ if (count($pdf_pages) > 0) {
     </thead>
     <tbody>
         <?php
-            $pdf_links = get_pdf_files_for_page($pfid);
             if (count($pdf_links) > 0) {
               foreach ($pdf_links as &$pl) {
                 $pfid = $pl->get_id();
                 echo "<tr>";
-                echo "<td>{$pl->get_id()} / {$pl->get_sort_index()}</td>";
+                echo "<td>{$pl->get_sort_index()}</td>";
                 echo "<td>{$pl->get_title()}</td>";
-                echo "<td><img width='100' src='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pl->get_thumbnail_image()}' alt='file'></td>";                
+                echo "<td>";
+                if ($pl->get_thumbnail_image() != null) {
+                  echo("<img width='100' src='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pl->get_thumbnail_image()}' alt='file'>");
+                } else {
+                  echo " N/A ";
+                }
+                echo "</td>";
                 echo "<td>{$pl->get_pdf_file()}</td>";
                 echo "<td><a class='btn btn-info' href='ob_update_pdf_file.php?pfid={$pl->get_id()}'>Edit</a></td>"; 
                 $del_btn = build_delete_file_form($ppid, $pfid);

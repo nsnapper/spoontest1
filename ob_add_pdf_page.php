@@ -40,7 +40,7 @@
         $page_image_temp   = ($_FILES['page_image']['tmp_name']);
         move_uploaded_file($page_image_temp,"$storage_file_dir_path/$storage_web_app_root/$pdf_file_dir_path/$page_image");
         
-        error_log("Adding new PDF Type: $title, parent_id: $parent_id", 0);
+        logger(DEBUG_LEVEL, "Adding new PDF Type: $title, parent_id: $parent_id");
         $result = add_pdf_page($title, $description, $page_image, $parent_id, $sort_index);
         confirm($result);
 

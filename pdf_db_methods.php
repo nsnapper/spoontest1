@@ -1,5 +1,11 @@
 <?php
 
+const PAGE_ID = 'id';
+const PAGE_TITLE = 'title';
+CONST PAGE_THUMBNAIL_IMAGE = 'page_image';
+const PAGE_PARENT_ID = 'parent_id';
+const PAGE_SORT_INDEX = 'sort_index';
+
 class PdfPage {
   public $id;
   public $title;
@@ -59,11 +65,15 @@ class PdfPage {
 /*
  * PDF Page CRUD methods.
  */
-function get_all_pdf_pages() {
+function get_all_pdf_pages($sort_dir='asc', $sort_by=null) {
   global $connection;
 
+  if ($sort_by == null) {
+    $sort_by = SORT_INDEX;
+  }
+
   $pdf_pages = array();
-  $query = "SELECT * FROM pdf_pages ORDER BY sort_index, title";
+  $query = "SELECT * FROM pdf_pages ORDER BY $sort_by $sort_dir";
   $pdf_page_info = mysqli_query($connection, $query);
   $count = mysqli_num_rows($pdf_page_info);
 
@@ -112,7 +122,7 @@ function add_pdf_page($title, $description, $image, $parent_page_id, $sort_index
   $query = "INSERT INTO pdf_pages(title, description, parent_id, page_image, sort_index)";
   $query .="VALUES('{$title}', '{$description}','{$parent_page_id}','{$image}', '{$sort_index}')";
 
-  error_log("Adding new PDF Type: $title", 0);
+  logger(DEBUG_LEVEL, "Adding new PDF Type: $title");
   $add_product_query = mysqli_query($connection, $query);
   return $add_product_query;
 }
@@ -124,10 +134,10 @@ function update_pdf_page($pdf_page) {
     $query .= " parent_id={$pdf_page->get_parent_page_id()}, page_image='{$pdf_page->get_image()}', sort_index='{$pdf_page->get_sort_index()}'";
     $query .= " WHERE id={$pdf_page->get_id()}";
 
-    error_log("update_pdf_page: QUERY: $query");
+    logger(DEBUG_LEVEL, "update_pdf_page: QUERY: $query");
 
     $result = mysqli_query($connection, $query);
-    error_log("update_pdf_page: returning...");
+    logger(DEBUG_LEVEL, "update_pdf_page: returning...");
     return $result;
 }
 
@@ -143,6 +153,16 @@ function delete_pdf_page($pdf_page_id) {
   $result = mysqli_query($connection, $query);
   return $result;
 }
+
+/*
+ * Column Constants
+ */
+const ID = 'id';
+const TITLE = 'title';
+CONST THUMBNAIL_IMAGE = 'pdf_image';
+const PDF_FILE = 'pdf_filename';
+const PDF_PAGE_ID = 'pdf_page_id';
+const SORT_INDEX = 'sort_index';
 
 /*
  * PDF File CRUD methods responsible for uploading, editing, and deleting PDF files.
@@ -205,11 +225,11 @@ class PdfFile {
 }
 
 // PDF CRUD methods
-function get_pdf_files_for_page($pdf_page_id) {
+function get_pdf_files_for_page($pdf_page_id, $sort_dir='asc', $sort_by=null) {
   global $connection;
   
-  $query = "SELECT * FROM pdf_links WHERE pdf_page_id=$pdf_page_id ORDER BY sort_index";
-
+  $query = "SELECT * FROM pdf_links WHERE pdf_page_id=$pdf_page_id ORDER BY $sort_by $sort_dir";
+  logger(DEBUG_LEVEL, "get_pdf_files_for_page: QUERY: $query");
   $pdf_file_array = array();
   $pdf_files = mysqli_query($connection, $query);
   $count = mysqli_num_rows($pdf_files);
@@ -247,24 +267,25 @@ function add_pdf_file($title, $thumbnail_image, $pdf_filename, $pdf_page_id, $so
       
   $query .="VALUES('{$title}', '{$pdf_filename}','{$thumbnail_image}','{$pdf_page_id}', '{$sort_index}')";
 
-  error_log("Adding new PDF File: QUERY: $query", 0);
+  logger(DEBUG_LEVEL, "Adding new PDF File: QUERY: $query");
   $result = mysqli_query($connection, $query);
-  error_log("add_pdf_file: returning...");
+  logger(DEBUG_LEVEL, "add_pdf_file: returning...");
   return $result;
 }
 
 function update_pdf_file($pdf_file) {
   global $connection;
 
+    logger(DEBUG_LEVEL, "****** THUMBNAIL IMAGE: " . $pdf_file->get_thumbnail_image());
     $query = "UPDATE pdf_links set title='{$pdf_file->get_title()}', pdf_filename='{$pdf_file->get_pdf_file()}',";
     $query .= " pdf_page_id={$pdf_file->get_pdf_page_id()}, pdf_image='{$pdf_file->get_thumbnail_image()}',";
     $query .= " sort_index='{$pdf_file->get_sort_index()}'";
     $query .= " WHERE id={$pdf_file->get_id()}";
 
-    error_log("update_pdf_file: QUERY: $query");
+    logger(DEBUG_LEVEL, "update_pdf_file: QUERY: $query");
 
     $result = mysqli_query($connection, $query);
-    error_log("update_pdf_page: returning...");
+    logger(DEBUG_LEVEL, "update_pdf_page: returning...");
     return $result;
 }
 

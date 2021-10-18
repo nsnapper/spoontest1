@@ -67,19 +67,19 @@
         $link_to           = escape($_POST['link_to']);
         // if (!is_writeable('$cms_images_upload/' . $_FILES['image']['name'])) {
         // if (!is_writeable('$cms_images_upload')) {
-        //     error_log("Can not write the file " . $_FILES['image']['name'] . "  to $cms_images_upload...\n");
+        //     logger(DEBUG_LEVEL, "Can not write the file " . $_FILES['image']['name'] . "  to $cms_images_upload...\n");
         //   die("Can not write the file " . $_FILES['image']['name'] . "  to $cms_images_upload...\n");
         // }
         // Only update the product image if one was selected for update.
         if ($prod_image != "") {
-          error_log("Uploading $prod_image to $cms_images_upload...", 0);
+          logger(DEBUG_LEVEL, "Uploading $prod_image to $cms_images_upload...");
           $moved = move_uploaded_file($prod_image_temp,"$cms_images_upload/$prod_image");
           
           if( $moved ) {
             $update_status = "Successfully uploaded image '$prod_image'.  <br />";
           } else {
             $moved_error_msg = "Not uploaded because of error #" . $_FILES["file"]["error"];
-            error_log($moved_error_msg, 0);
+            logger(ERROR_LEVEL, $moved_error_msg);
             die($moved_error_msg);
           }
         }

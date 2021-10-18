@@ -20,7 +20,7 @@
 <?php
     
     $update_status = "";
-    error_log("ob_add_pdf_file");
+    logger(DEBUG_LEVEL, "ob_add_pdf_file");
     // TODO: This is a future to allow for nested pages.  0 == root page
     $ppid = 0;
     $pfid = 0;
@@ -33,7 +33,7 @@
     }
     
     if (isset($_POST['add_pdf_file'])) {
-      error_log("ob_add_pdf_file: Adding new PDF...", 0);
+      logger(DEBUG_LEVEL, "ob_add_pdf_file: Adding new PDF...");
 
       $title             = escape($_POST['title']);
       $description       = escape($_POST['description']);
@@ -96,7 +96,7 @@
 
         <div class="form-group">
             <label for="pdf_image">Image</label>
-            <input type="file"  name="pdf_image" accept="image/png, image/jpeg, image/jpg" required>
+            <input type="file"  name="pdf_image" accept="image/png, image/jpeg, image/jpg">
         </div>
 
         <div class="form-group">

@@ -33,11 +33,15 @@
         echo("<ul class='list-group'>");
 
         foreach ($pdf_pages as &$pp) {
-          echo("<li class='list-group-item'><a href='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_pdf_file()}'><img width='100' src='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_thumbnail_image()}' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
+          echo("<li class='list-group-item'><a href='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_pdf_file()}'>");
+          if ($pp->get_thumbnail_image() != null) {
+            echo("<img width='100' src='$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_thumbnail_image()}' alt='images'>");
+          }
+          echo("<span class='pdf_link'>{$pp->get_title()}</span></a></li>");
         }
         echo("</ul>");
       } else {
-        echo("<li class='list-group-item'>No entries found for this type of catalog.</li>");
+        echo("<!-- <li class='list-group-item'>No entries found for this type of catalog.</li> -->");
       }
 
       $pdf_parent_page = get_pdf_page($pdf_page_id);
@@ -46,13 +50,17 @@
         echo("<ul class='list-group'>");
         foreach ($pdf_pages as &$pp) {
           echo("<!-- Page Image: {$pp->get_image()} -->");
-          echo("<li class='list-group-item'><a href='catalogs.php?ppid={$pp->get_id()}'><img width='100' src='" . "$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_image()}" . "' alt='images'><span class='pdf_link'>{$pp->get_title()}</span></a></li>");
+          echo("<li class='list-group-item'><a href='catalogs.php?ppid={$pp->get_id()}'>");
+          if ($pp->get_image() != null) {
+            echo("<img width='100' src='" . "$app_root_dir/$storage_web_app_root/$pdf_file_dir_path/{$pp->get_image()}" . "' alt='images'>");
+          }
+          echo("<span class='pdf_link'>{$pp->get_title()}</span></a></li>");
         }
         echo("</ul>");
       } else {
         // Root pages are expected to have sibling pages.  This could change...
         if ($pdf_parent_page->get_parent_page_id() == 0) {
-          echo("<li class='list-group-item'>No catalog pages found...</li>");
+          echo("<!-- <li class='list-group-item'>No catalog pages found...</li> -->");
         }
       }
     ?>

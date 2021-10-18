@@ -71,7 +71,13 @@ function deleteCategories(){
 }
 
 
-
+function logger($level, $log_message) {
+  global $log_level;
+  
+  if ($level >= $log_level) {
+    error_log("SpoonWebLog: $log_message", 0);
+  }
+}
 
 ?>
 

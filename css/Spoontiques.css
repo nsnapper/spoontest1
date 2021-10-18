@@ -144,3 +144,15 @@ li.nav-item {
   font-size: 1.1em;
   color: rgb(32, 178, 170);
 }
+
+.form-group {
+  border: 1px solid lightseagreen;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+#delete_thumbnail {
+  margin-right: 5px;
+}
