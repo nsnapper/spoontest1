@@ -191,7 +191,7 @@
 
 
         <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="update_pdf_file" value="Update PDF Page">
+        <input class="btn btn-primary" type="submit" name="update_pdf_file" value="Update PDF File">
         <input class="btn btn-danger" type="button" onclick='javascript:history.back(1);' value="Cancel">
         </div>
     </div>

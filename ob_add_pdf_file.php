@@ -130,7 +130,7 @@
 
 
         <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="add_pdf_file" value="Add PDF Page">
+        <input class="btn btn-primary" type="submit" name="add_pdf_file" value="Add PDF File">
         <input class="btn btn-danger" type="button" onclick='javascript:history.back(1);' value="Cancel">
         </div>
     </div>
