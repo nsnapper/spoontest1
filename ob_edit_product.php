@@ -6,6 +6,7 @@
 
 <?php include "functions.php"; ?>
 <?php include "db.php"; ?>
+<?php include "pdf_db_methods.php"; ?>
 
 <html lang="en">
 
@@ -159,7 +160,7 @@
         <div class="form-group">
           <label for="prod_image">Image</label>
             <div style="display: inline-block">(Current File: <?php echo $prod_image; ?>)</div>
-            <img src="$cms_images/<?php echo $prod_image; ?>" width="100" alt="">
+            <img src="<?= "$cms_images" ?>/<?= $prod_image ?>" width="100" alt="">
             <input type="file" name="prod_image">
         </div>
 
