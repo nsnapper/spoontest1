@@ -51,7 +51,7 @@
     </div>
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-block">
-        Our minimum order is $170 USD, $275 CAD.
+        Our minimum order is $200 USD, $300 CAD.
     </div>
   </div>
     </div>
