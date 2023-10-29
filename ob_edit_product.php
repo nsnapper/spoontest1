@@ -52,7 +52,9 @@
         $link_to_page_title = $row['PageTableName'];
     }
 
-
+    $moved = false;
+    $moved_error_msg = "";
+    $update_status = "";
     if (isset($_POST['update_product'])) {
         
         $display_page      = escape($_POST['display_page']);
@@ -62,8 +64,23 @@
         $prod_image_temp   = ($_FILES['prod_image']['tmp_name']);
         $blurb             = escape($_POST['blurb']);
         $link_to           = escape($_POST['link_to']);
-        move_uploaded_file($prod_image_temp,"cms_images/$prod_image");
-        
+        if (!is_writeable('cms_images/' . $_FILES['image']['name'])) {
+          error_log("Can not write the file " . $_FILES['image']['name'] . "  to cms_images...\n");
+          die("Can not write the file " . $_FILES['image']['name'] . "  to cms_images...\n");
+        }
+        // Only update the product image if one was selected for update.
+        if ($prod_image != "") {
+          $moved = move_uploaded_file($prod_image_temp,"cms_images/$prod_image");
+          
+          if( $moved ) {
+            $update_status = "Successfully uploaded image '$prod_image'.  <br />";
+          } else {
+            $moved_error_msg = "Not uploaded because of error #" . $_FILES["file"]["error"];
+            error_log($moved_error_msg, 0);
+            die($moved_error_msg);
+          }
+        }
+
         if(empty($prod_image)) {
             $query = "SELECT * FROM websitelayout WHERE System_ID = $product_id"; 
             $select_image = mysqli_query($connection,$query);
@@ -86,6 +103,7 @@
 
         $update_product = mysqli_query($connection,$query);
         confirm($update_product);
+        $update_status .= "Successfully updated DB entry for $prod_title";
      }
  
         
@@ -94,7 +112,14 @@
     
 <form action="" method="post" enctype="multipart/form-data">         
     <div class="container">
-
+<?php
+    if ($update_status != "") {
+?>
+      <p><b><i><?= $update_status ?></i></b></p>
+<?php
+    }
+?>
+        <h4>Update Product</h4>
         <div class="form-group">
             <select name="display_page" id="">
                 <option value='<?php echo $display_page ?>'><?php echo $display_page_title?></option>
@@ -121,22 +146,22 @@
 
         <div class="form-group">
             <label for="sort_order">Sort Order</label>
-            <input type="text" value ="<?php echo $sort_order?>" class="form-control" name="sort_order">
+            <input type="text" value ="<?php echo $sort_order?>" class="form-control" name="sort_order" required>
         </div> 
         <div class="form-group">
             <label for="prod_title">Title</label>
-            <input type="text" value ="<?php echo $prod_title?>" class="form-control" name="prod_title">
+            <input type="text" value ="<?php echo $prod_title?>" class="form-control" name="prod_title" required>
         </div> 
 
         <div class="form-group">
-            <label for="prod_image">Image</label>
+          <label for="prod_image">Image</label>
             <img src="cms_images/<?php echo $prod_image; ?>" width="100" alt="">
             <input type="file" name="prod_image">
         </div>
 
         <div class="form-group">
             <label for="blurb">Blurb</label>
-            <textarea class="form-control" name="blurb" id="" cols="30" rows="5"><?php echo $blurb; ?>
+            <textarea class="form-control" name="blurb" id="" cols="30" rows="5" required><?php echo $blurb; ?>
             </textarea>
         </div>
 

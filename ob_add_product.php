@@ -17,7 +17,7 @@
     
 <?php
     
-
+    $update_status = "";
     if(isset($_POST['add_product'])){
         $display_page      = escape($_POST['display_page']);
         $sort_order        = escape($_POST['sort_order']);
@@ -36,13 +36,29 @@
         $add_product_query = mysqli_query($connection, $query);
 
         confirm($add_product_query);
+        $update_status = "Successfully added $prod_title.";
     }
     
 ?>
 
+<?php
+    $redirect_func = "";
+    if(isset($_POST['add_product'])) {
+      $redirect_func = "<script>window.location = '/~bill/spoontest/ob_products.php';</script>";
+    }
+
+?>
 
 <form action="" method="post" enctype="multipart/form-data">    
     <div class="container">
+<?php
+    if ($update_status != "") {
+?>
+      <p><b><i><?= $update_status ?></i></b></p>
+<?php
+    }
+?>
+        <h4>Add New Product</h4>
         <div class="form-group">
             <select name="display_page" id="">
 
@@ -65,22 +81,22 @@
 
         <div class="form-group">
             <label for="sort_order">Sort Order</label>
-            <input type="text" class="form-control" name="sort_order">
+            <input type="text" class="form-control" name="sort_order" required>
         </div> 
         <div class="form-group">
             <label for="prod_title">Title</label>
-            <input type="text" class="form-control" name="prod_title">
+            <input type="text" class="form-control" name="prod_title" required>
         </div> 
 
         <div class="form-group">
             <label for="prod_image">Image</label>
-            <input type="file"  name="prod_image">
+            <input type="file"  name="prod_image" required>
         </div>
 
 
         <div class="form-group">
             <label for="blurb">Blurb</label>
-             <textarea class="form-control "name="blurb" id="" cols="30" rows="5"></textarea>
+             <textarea class="form-control "name="blurb" id="" cols="30" rows="5" required></textarea>
          </div>
 
             <div class="form-group">
