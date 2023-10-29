@@ -5,23 +5,30 @@
 $CurrentPage = basename($_SERVER['PHP_SELF']);
 
 $HomePage = 'index.php';
+$AdminHomePage = 'ob_admin.php';
 $CategoriesPage = 'ob_categories.php';
 $ProductsPage = 'ob_products.php';
 $AddCatPage = 'ob_add_category.php';
 $AddProductPage = 'ob_add_product.php';
+$ListPdfPages = 'ob_pdf_pages.php';
+$PdfFilesPages = 'ob_pdf_files.php';
 
 $HomeClass = '';
+$AdminHomeClass = '';
 $CategoriesClass = '';
 $ProductsClass = '';
 $AddCatClass = '';
 $AddProductClass = '';
-                              
+$PdfPageClass = '';
+$PdfFileClass = '';                
 
 if(isset($_GET['category'])){
 //   && ($_GET['category'] == $category_id)){
     $ProductClass = 'active';
-} else if ($CurrentPage == $HomePage) {
+  } else if ($CurrentPage == $HomePage) {
     $HomeClass = 'active';
+  } else if ($CurrentPage == $AdminHomePage) {
+    $AdminHomeClass = 'active';
 } else if ($CurrentPage == $CategoriesPage) {
     $CategoriesClass = 'active';
 } else if ($CurrentPage == $AddCatPage) {
@@ -30,6 +37,10 @@ if(isset($_GET['category'])){
     $ProductsClass = 'active';
 } else if ($CurrentPage == $AddProductPage) {
     $AddProductClass = 'active';
+} else if ($CurrentPage == $ListPdfPages) {
+  $PdfPageClass = 'active';
+} else if ($CurrentPage == $PdfFilesPages) {
+  $PdfFileClass = 'active';
 }
 
 ?>
@@ -41,6 +52,9 @@ if(isset($_GET['category'])){
 		<li class="nav-item">
 		  <a class="nav-link <?php echo $HomeClass?>" href="index.php">Home</a>
 		</li>
+		<li class="nav-item">
+		  <a class="nav-link <?php echo $AdminHomeClass?>" href="ob_admin.php">Admin Home</a>
+		</li>
 
 		<li class="nav-item">
 		  <a class="nav-link <?php echo $CategoriesClass?>" href="ob_categories.php">Categories</a>
@@ -51,8 +65,14 @@ if(isset($_GET['category'])){
         <li class="nav-item">
 		  <a class="nav-link <?php echo $ProductsClass?>" href="ob_products.php">Products</a>
 		</li>
-        <li class="nav-item">
+    <li class="nav-item">
 		  <a class="nav-link <?php echo $AddProductClass?>" href="ob_add_product.php">Add Products</a>
+		</li>
+    <li class="nav-item">
+		  <a class="nav-link <?php echo $PdfPageClass?>" href="ob_pdf_pages.php">PDF Pages</a>
+		</li>
+    <li class="nav-item">
+		  <a class="nav-link <?php echo $PdfFileClass?>" href="ob_pdf_files.php">PDF Files</a>
 		</li>
      </ul>
 

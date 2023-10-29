@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+<?php include "app_variables.php"; ?>
 <?php include "db.php"; ?>
-<!--<?php include "includes/header.php";  ?>-->
 
 <html lang="en">
 
@@ -15,7 +15,7 @@
     <?php include "includes/navbar.php"; ?>
     
       <div id="banner" class="banner">
-          <img src="images/FullBanner.jpg" alt="product banner" img width = 100%>;
+          <img src="images/2022Banner.jpg" alt="product banner" img width = 100%>;
       </div>  
 
 <!--
@@ -100,7 +100,7 @@
 //                echo "<td><a href='categories.php?source=edit_category&edit_category={$page_id}'>Edit</a></td>"; 
         
         echo '<div class="card" style="width: 20rem;">';
-                 echo "<img class='card-img-top' src='cms_images/$image_file' alt=$image_file img width=350 img height=350>";      
+                 echo "<img class='card-img-top' src='$cms_images/$image_file' alt=$image_file img width=350 img height=350>";      
         if ($next_page !== "none"){
             echo "<div class='card-block-product card-block'>
             <a href='prod_page.php?category=$next''><h4 class='card-title'> $page_title</h4></a>";

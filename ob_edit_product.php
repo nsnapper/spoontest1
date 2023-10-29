@@ -1,3 +1,4 @@
+<?php include "app_variables.php"; ?>
 <?php
   require_once('includes/authorize.php');
 ?>
@@ -5,6 +6,7 @@
 
 <?php include "functions.php"; ?>
 <?php include "db.php"; ?>
+<?php include "pdf_db_methods.php"; ?>
 
 <html lang="en">
 
@@ -64,19 +66,21 @@
         $prod_image_temp   = ($_FILES['prod_image']['tmp_name']);
         $blurb             = escape($_POST['blurb']);
         $link_to           = escape($_POST['link_to']);
-        if (!is_writeable('cms_images/' . $_FILES['image']['name'])) {
-          error_log("Can not write the file " . $_FILES['image']['name'] . "  to cms_images...\n");
-          die("Can not write the file " . $_FILES['image']['name'] . "  to cms_images...\n");
-        }
+        // if (!is_writeable('$cms_images_upload/' . $_FILES['image']['name'])) {
+        // if (!is_writeable('$cms_images_upload')) {
+        //     logger(DEBUG_LEVEL, "Can not write the file " . $_FILES['image']['name'] . "  to $cms_images_upload...\n");
+        //   die("Can not write the file " . $_FILES['image']['name'] . "  to $cms_images_upload...\n");
+        // }
         // Only update the product image if one was selected for update.
         if ($prod_image != "") {
-          $moved = move_uploaded_file($prod_image_temp,"cms_images/$prod_image");
+          logger(DEBUG_LEVEL, "Uploading $prod_image to $cms_images_upload...");
+          $moved = move_uploaded_file($prod_image_temp,"$cms_images_upload/$prod_image");
           
           if( $moved ) {
             $update_status = "Successfully uploaded image '$prod_image'.  <br />";
           } else {
             $moved_error_msg = "Not uploaded because of error #" . $_FILES["file"]["error"];
-            error_log($moved_error_msg, 0);
+            logger(ERROR_LEVEL, $moved_error_msg);
             die($moved_error_msg);
           }
         }
@@ -155,7 +159,8 @@
 
         <div class="form-group">
           <label for="prod_image">Image</label>
-            <img src="cms_images/<?php echo $prod_image; ?>" width="100" alt="">
+            <div style="display: inline-block">(Current File: <?php echo $prod_image; ?>)</div>
+            <img src="<?= "$cms_images" ?>/<?= $prod_image ?>" width="100" alt="">
             <input type="file" name="prod_image">
         </div>
 
@@ -189,6 +194,7 @@
 
         <div class="form-group">
             <input class="btn btn-primary" type="submit" name="update_product" value="Update Product">
+            <input class="btn btn-danger" type="button" onclick='javascript:history.back(1);' value="Cancel">
         </div>
     </div>
 </form>

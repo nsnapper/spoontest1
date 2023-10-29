@@ -1,4 +1,5 @@
 <html lang="en">
+<?php include "../../app_variables.php"; ?>
 
 <head>
     <title>Spoontiques, Inc. - Wholesale Giftware</title>
@@ -13,21 +14,9 @@
 
 
 <body>
-    <?php include "../../includes/logo.php"; ?>
-
-
-<div id="pdf_lists">
-    <ul class="list-group">
-        <li class="list-group-item"><a href='documents/CanadianAccessories.pdf'><img width='100' src='images/Accessories.jpg' alt='images'>Accessories</a></li>
-        <li class="list-group-item"><a href='documents/CanadianDrinkware.pdf'><img width='100' src='images/Drinkware.jpg' alt='images'>Drinkware</a></li>
-        <li class="list-group-item"><a href='documents/CanadianFaceCovers.pdf'><img width='100' src='images/FaceCovers.jpg' alt='images'>Face Covers</a></li> 
-        <li class="list-group-item"><a href='documents/CanadianGardenDecor.pdf'><img width='100' src='images/GardenDecor.jpg' alt='images'>Garden Decor</a></li>
-        <li class="list-group-item"><a href='documents/CanadianHoliday.pdf'><img width='100' src='images/Holiday.jpg' alt='images'>Holiday</a></li>
-        <li class="list-group-item"><a href='documents/CanadianHomeDecor.pdf'><img width='100' src='images/HomeDecor.jpg' alt='images'>Home Decor</a></li>   
-</div>
-
-
-<div>
-    <?php include "../../includes/footer.php";  ?>
-</div>
+  <?php
+    // TODO: This will eventually go away.  It was created to maintain backward
+    //       compatibility with the old catalog link.
+    header("Location: $app_root_dir/pages/pdfs/catalogs.php?ppid=104") 
+  ?>
 </body>

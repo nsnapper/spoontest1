@@ -1,8 +1,9 @@
 <html lang="en">
+<?php include "../../app_variables.php"; ?>
 
 <head>
     <title>Spoontiques, Inc. - Wholesale Giftware</title>
-    <link rel="stylesheet" type="text/css" href="../../css/Spoontiques.css">
+    <link rel="stylesheet" type="text/css" href="../../css/Spoontiques.css?23456">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,21 +14,10 @@
 
 
 <body>
-    <?php include "../../includes/logo.php"; ?>
-    
-<div id="pdf_lists">
-    <ul class="list-group">
-        <li class="list-group-item"><a href='documents/CanadianFullCatalog.pdf'><img width='100' src='images/cover2.jpg' alt='images'>Spoontiques January 2021 Catalog with Canadian Pricing</a></li>
-        <li class="list-group-item"><a href='documents/CanadianSupplement.pdf'><img width='100' src='images/Supplement.jpg' alt='images'>New for Summer 2021 with Canadian Pricing</a></li>
-        <li class="list-group-item"><a href='CanadianSections.php'><img width='100' src='images/cover2.jpg' alt='images'>Individual Sections with Canadian Pricing</a></li>
-        <li class="list-group-item"><a href='CanadianLicenses.php'><img width='100' src='images/licenses.jpg' alt='images'>Individual Licenses with Canadian Pricing</a></li>
-
-
-   </ul>    
-   
-</div>
-
-<div>
-    <?php include "../../includes/footer.php";  ?>
-</div>
+  <?php
+    // TODO: This will eventually go away.  It was created to maintain backward
+    //       compatibility with the old catalog link.
+    // XXX: LOCAL IS 105 but this is the id for the live site since we don't need redirects local
+    header("Location: $app_root_dir/pages/pdfs/catalogs.php?ppid=103") 
+  ?>
 </body>

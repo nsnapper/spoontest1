@@ -10,7 +10,7 @@ $FAQPage = 'FAQ.php';
 $HomePage = 'index.php';
 $CatRequestPage = 'CatRequest.php';
 
-//$AboutUsClass = '';
+$AboutUsClass = '';
 $ContactUsClass = '';
 $FAQClass = '';
 $HomeClass = '';

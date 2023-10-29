@@ -11,9 +11,9 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>        
 <script src="jquery-ui/jquery-ui.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<script src="js/bootstrap.min.js"></script>    
+<script src="<?= $app_root_dir ?>/js/bootstrap.min.js"></script>    
 
 <link href="jquery-ui/jquery-ui.css" rel="stylesheet">	
-<link rel="stylesheet" type="text/css" href="css/Spoontiques.css">
+<link rel="stylesheet" type="text/css" href="<?= $app_root_dir ?>/css/Spoontiques.css?23456789">
 <!--    bootstrap 4.0.0-alpha.2-->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?= $app_root_dir ?>/css/bootstrap.min.css">
