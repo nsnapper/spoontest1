@@ -121,6 +121,13 @@ li.nav-item {
     
 /*    padding-left: 60px !important;*/
 }
+.show-name {
+    text-align: center;
+    font-size: 150%;
+    margin-top: 18px;
+    color: lightseagreen;
+
+}
 
 .card-block-product {
     padding-top: 1.25rem;
