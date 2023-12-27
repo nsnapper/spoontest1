@@ -128,6 +128,10 @@ li.nav-item {
     color: lightseagreen;
 
 }
+.show-desc {
+    text-align: center;
+    margin-bottom: 5px;
+}
 
 .card-block-product {
     padding-top: 1.25rem;

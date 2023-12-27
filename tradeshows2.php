@@ -25,9 +25,10 @@
     </div>
 
     <div id="Note">
-        <p class="pageNote">Anne McGilvray & Company</p>
-        <p class="pageNote">Americas Mart – Building 2</p>
-        <p class="pageNote">Suite #1718</p>
+        <p class="show-desc">Anne McGilvray & Company</p>
+        <p class="show-desc">Americas Mart – Building 2</p>
+        <p class="show-desc">Suite #1718
+        </p>
     </div
 
 </div> 
