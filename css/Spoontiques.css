@@ -130,6 +130,8 @@ li.nav-item {
 }
 .show-desc {
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 .card-block-product {
