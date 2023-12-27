@@ -124,14 +124,14 @@ li.nav-item {
 .show-name {
     text-align: center;
     font-size: 150%;
-    margin-top: 18px;
+    margin-top: 24px;
     margin-bottom: 0px;
     color: lightseagreen;
 
 }
 .show-desc {
     text-align: center;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-bottom: 0px;
 }
 
