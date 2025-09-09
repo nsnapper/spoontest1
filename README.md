@@ -70,3 +70,7 @@ PdfFile objects will be returned.
 ### PDF SQL Table Creation.
 create_pdf_tables.sql - this will drop and create pdf_pages and pdf_links
 tables.
+
+9-8-25
+Setup Nancy's new laptop with git.  This is a test comment to see that this file can be committed and pushed.
+
