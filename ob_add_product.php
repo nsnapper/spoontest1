@@ -23,8 +23,8 @@
         $display_page      = escape($_POST['display_page']);
         $sort_order        = escape($_POST['sort_order']);
         $prod_title        = escape($_POST['prod_title']);
-        $prod_image        = escape($_FILES['prod_image']['name']);
-        $prod_image_temp   = ($_FILES['prod_image']['tmp_name']);
+        $prod_image        = escape($_FILES['page_image']['name']);
+        $prod_image_temp   = ($_FILES['page_image']['tmp_name']);
         $blurb             = escape($_POST['blurb']);
         $link_to           = escape($_POST['link_to']);
         move_uploaded_file($prod_image_temp,"$cms_images_upload/$prod_image");
