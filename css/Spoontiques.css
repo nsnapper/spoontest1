@@ -175,3 +175,11 @@ li.nav-item {
     width: 85% !important;
   }
 }
+
+.social-logo {
+  width: 30px;
+  height: 30px;
+}
+.social-logo:last-of-type {
+  margin-left: 10px;
+}
